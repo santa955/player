@@ -22,35 +22,23 @@ class Home extends Component {
         <Swiper swipers={mockSwipers} ></Swiper>
         <View style={styles.menus}>
           <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>腾讯</Text>
+            <Icon name="present" size={22} />
+            <Text style={styles.menuText}>每日抽奖</Text>
           </View>
           <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>爱奇艺</Text>
+            <Icon name="people" size={22} />
+            <Text style={styles.menuText}>邀请好友</Text>
           </View>
           <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>优酷</Text>
+            <Icon name="envelope-letter" size={22} />
+            <Text style={styles.menuText}>每日分享</Text>
           </View>
           <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>搜狐</Text>
-          </View>
-          <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>爱奇艺</Text>
-          </View>
-          <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>优酷</Text>
-          </View>
-          <View style={styles.menu}>
-            <View style={styles.menuIcon}></View>
-            <Text style={styles.menuText}>搜狐</Text>
+            <Icon name="book-open" size={22} />
+            <Text style={styles.menuText}>使用帮助</Text>
           </View>
         </View>
-      </View>
+      </View >
     )
   }
 }
@@ -69,19 +57,17 @@ const styles = StyleSheet.create({
     height: screenWidth / 1.7794
   },
   menus: {
-    padding: 20,
-    // paddingTop: 10,
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     backgroundColor: '#fff'
   },
   menu: {
-    marginTop: 10,
-    width: (screenWidth - 40) / 4,
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   menuIcon: {
     width: 50,
@@ -91,7 +77,7 @@ const styles = StyleSheet.create({
   },
   menuText: {
     marginTop: 5,
-    fontSize: 14,
-    color: '#555'
+    fontSize: 12,
+    color: '#333'
   }
 })
