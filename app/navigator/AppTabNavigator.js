@@ -68,9 +68,9 @@ const AppTabNavigator = TabNavigator({
         // marginTop: 3,
       },
       style: {
-        // height: 56,
         paddingVertical: 3,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        borderTopColor: '#fff'
       },
       iconStyle: {
       }
@@ -78,4 +78,4 @@ const AppTabNavigator = TabNavigator({
   });
 
 
-  export default AppTabNavigator
+export default AppTabNavigator
