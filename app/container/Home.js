@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Swiper from '../components/Swiper';
+import { textColor, bgColor, fontSize, commonStyles } from '../styles'
 
 import { mockSwipers } from '../mock/home'
 
-let screenWidth = Dimensions
-  .get('window')
-  .width;
+let { screenWidth } = Dimensions.get('window').width;
+
 class Home extends Component {
   constructor() {
     super()
@@ -18,7 +18,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <View style={styles.root}>
+      <View style={commonStyles.root}>
         <Swiper swipers={mockSwipers} ></Swiper>
         <View style={styles.menus}>
           <View style={styles.menu}>
@@ -38,7 +38,48 @@ class Home extends Component {
             <Text style={styles.menuText}>使用帮助</Text>
           </View>
         </View>
-      </View >
+        <View style={styles.videoBlock}>
+          <View style={styles.blockTitle}>
+            <Icon name="fire" style={styles.titleIcon} />
+            <Text style={styles.titleMain}>今日热门</Text>
+            <Text style={styles.titleSub}>无证之罪：严良骆闻双雄对决</Text>
+          </View>
+          <View style={styles.blockContent}>
+            <View style={styles.video}>
+              <Image
+                style={styles.videoCover}
+                source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
+              />
+              <Text style={styles.videoName}>那年花开月正圆[会员22点抢先看]</Text>
+              <Text style={styles.videoDesc}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+            </View>
+            <View style={styles.video}>
+              <Image
+                style={styles.videoCover}
+                source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
+              />
+              <Text style={styles.videoName}>那年花开月正圆[会员22点抢先看]</Text>
+              <Text style={styles.videoDesc}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+            </View>
+            <View style={styles.video}>
+              <Image
+                style={styles.videoCover}
+                source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
+              />
+              <Text style={styles.videoName}>那年花开月正圆[会员22点抢先看]</Text>
+              <Text style={styles.videoDesc}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+            </View>
+            <View style={styles.video}>
+              <Image
+                style={styles.videoCover}
+                source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
+              />
+              <Text style={styles.videoName}>那年花开月正圆[会员22点抢先看]</Text>
+              <Text style={styles.videoDesc}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+            </View>
+          </View>
+        </View>
+      </View>
     )
   }
 }
@@ -46,11 +87,6 @@ class Home extends Component {
 export default Home
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#f5f5f5'
-  },
   swiper: {
     resizeMode: 'contain',
     width: screenWidth,
@@ -79,5 +115,20 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 12,
     color: '#333'
+  },
+  videoBlock: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    marginTop: 8,
+    backgroundColor: bgColor.white
+  },
+  blockTitle: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  titleIcon: {
+    fontSize: 24,
+    color: textColor.active
   }
+
 })

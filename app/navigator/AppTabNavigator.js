@@ -7,6 +7,7 @@ import Video from '../container/Video';
 import TV from '../container/TV';
 import User from '../container/User';
 import CustomerAnimate from '../animations';
+import { textColor, bgColor, font } from '../styles'
 
 const AppTabNavigator = TabNavigator({
   Home: {
@@ -53,26 +54,21 @@ const AppTabNavigator = TabNavigator({
     initialRouteName: 'Home',
     backBehavior: 'none',
     tabBarOptions: {
-      activeTintColor: '#3cb963',
-      activeBackgroundColor: '#fff',
-      inactiveTintColor: '#999',
-      inactiveBackgroundColor: '#fff',
+      activeTintColor: textColor.active,
+      activeBackgroundColor: bgColor.white,
+      inactiveTintColor: textColor.secondary,
+      inactiveBackgroundColor: bgColor.white,
       showIcon: true,
-      tabStyle: {
-      },
       indicatorStyle: {
         height: 0
       },
       labelStyle: {
-        fontSize: 12,
-        // marginTop: 3,
+        fontSize: font.xs,
       },
       style: {
         paddingVertical: 3,
-        backgroundColor: '#fff',
-        borderTopColor: '#fff'
-      },
-      iconStyle: {
+        backgroundColor: bgColor.white,
+        borderTopColor: textColor.white
       }
     }
   });
