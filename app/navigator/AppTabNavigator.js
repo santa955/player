@@ -7,7 +7,7 @@ import Video from '../container/Video';
 import TV from '../container/TV';
 import User from '../container/User';
 import CustomerAnimate from '../animations';
-import { textColor, bgColor, font } from '../styles'
+import { textColor, bgColor, font, color } from '../styles'
 
 const AppTabNavigator = TabNavigator({
   Home: {
@@ -68,7 +68,7 @@ const AppTabNavigator = TabNavigator({
       style: {
         paddingVertical: 3,
         backgroundColor: bgColor.white,
-        borderTopColor: textColor.white
+        borderTopColor: color.colorDivid
       }
     }
   });
