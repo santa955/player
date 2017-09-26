@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Swiper from '../components/Swiper';
-import { textColor, bgColor, font, commonStyles } from '../styles'
+import { textColor, bgColor, font, commonStyles, color } from '../styles'
 
 import { mockSwipers } from '../mock/home'
 
@@ -19,7 +19,7 @@ class Home extends Component {
   }
   render() {
     return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={commonStyles.root}>
           <Swiper swipers={mockSwipers} ></Swiper>
           <View style={styles.menus}>
@@ -89,8 +89,85 @@ class Home extends Component {
               </View>
             </View>
             <View style={styles.blockBottom}>
-              <Text style={styles.buttonLink}>更多热播</Text>
-              <Text style={styles.buttonLink}>换一批试试</Text>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>更多热播</Text>
+                <Icon style={styles.buttonIcon} name="arrow-right" size={9}></Icon>
+              </View>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>换一批</Text>
+                <Icon style={styles.buttonIcon} name="refresh" size={10}></Icon>
+              </View>
+            </View>
+          </View>
+          <View style={styles.block}>
+            <View style={styles.blockTitle}>
+              <Icon name="screen-desktop" style={styles.titleIcon} />
+              <Text style={styles.titleMain}>同步电视剧</Text>
+              <Text style={styles.titleSub}>无证之罪：严良骆闻双雄对决</Text>
+            </View>
+            <View style={styles.blockContent}>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15735105_453254/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+                </View>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15715161_453254/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>大王不容易[会员结局]</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}>机洗夫妇开虐 两军阵前姬满用弓箭对准妲喜</Text>
+                </View>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15704861_330185/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>青春最好时·会员全集</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}> 张雪迎曾舜晞甜蜜牵手</Text>
+                </View>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15735105_453254/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+                </View>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15715161_453254/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>大王不容易[会员结局]</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}>机洗夫妇开虐 两军阵前姬满用弓箭对准妲喜</Text>
+                </View>
+                <View style={styles.video}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15704861_330185/0' }}
+                  />
+                  <Text style={styles.videoName} numberOfLines={1}>青春最好时·会员全集</Text>
+                  <Text style={styles.videoDesc} numberOfLines={1}> 张雪迎曾舜晞甜蜜牵手</Text>
+                </View>
+              </ScrollView>
+            </View>
+            <View style={styles.blockBottom}>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>更多电视剧</Text>
+                <Icon style={styles.buttonIcon} name="arrow-right" size={9}></Icon>
+              </View>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>换一批</Text>
+                <Icon style={styles.buttonIcon} name="refresh" size={10}></Icon>
+              </View>
             </View>
           </View>
         </View>
@@ -143,20 +220,27 @@ const styles = StyleSheet.create({
   },
   titleIcon: {
     marginRight: 8,
-    fontSize: 24,
-    width: 24,
-    height: 24,
+    fontSize: font.lg,
+    width: 20,
+    height: 20,
     color: textColor.active
   },
 
   titleMain: {
-    fontSize: 21,
+    fontSize: font.md,
     color: textColor.primary
   },
 
   titleSub: {
-    fontSize: 14,
+    fontSize: font.xs,
     marginLeft: 8
+  },
+
+  block: {
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    marginTop: 8,
+    backgroundColor: bgColor.white
   },
 
   blockContent: {
@@ -164,13 +248,16 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginTop: 16,
+    marginLeft: -8
   },
   video: {
     marginBottom: 16,
+    marginLeft: 8,
     width: videoCoverWidth,
   },
   videoFull: {
     marginBottom: 16,
+    marginLeft: 8,
     width: screenWidth,
   },
   videoCoverFull: {
@@ -193,15 +280,27 @@ const styles = StyleSheet.create({
   videoDesc: {
     fontSize: font.xs
   },
-  blockBottom:{
+  blockBottom: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  buttonLink:{
-    width:(screenWidth - 32) / 2,
-    fontSize:font.sm,
+  buttonLink: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: (screenWidth - 32) / 2,
+  },
+  buttonText: {
+    fontSize: font.sm,
     color: textColor.link,
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  buttonIcon: {
+    marginLeft: 8,
+    // fontSize: font.sm - 2,
+    color: textColor.link,
+    textAlign: 'center',
+    textAlignVertical: 'center'
   }
 
 })
