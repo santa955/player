@@ -20,7 +20,8 @@ export const textColor = {
 export const bgColor = {
   white: color.white,
   gray: color.colorBg,
-  green: 'rgba(32, 188, 34, 0.8)'
+  green: 'rgba(32, 188, 34, 0.8)',
+  blackLight: color.blackSecondary
 }
 
 export const font = {

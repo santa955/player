@@ -48,42 +48,57 @@ class Home extends Component {
             </View>
             <View style={styles.blockContent}>
               <View style={styles.videoFull}>
-                <Image
-                  style={styles.videoCoverFull}
-                  source={{ uri: 'http://puui.qpic.cn/tv/0/15568529_453254/0' }}
-                />
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoCoverFull}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15568529_453254/0' }}
+                  />
+                  <Text style={styles.videoDuration}>更新至43集</Text>
+                </View>
                 <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
                 <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
               </View>
               <View style={styles.video}>
-                <Image
-                  style={styles.videoCover}
-                  source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
-                />
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15747717_453254/0' }}
+                  />
+                  <Text style={styles.videoDuration}>全52集</Text>
+                </View>
                 <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
                 <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
               </View>
               <View style={styles.video}>
-                <Image
-                  style={styles.videoCover}
-                  source={{ uri: 'http://puui.qpic.cn/tv/0/15735105_453254/0' }}
-                />
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15735105_453254/0' }}
+                  />
+                  <Text style={styles.videoDuration}>更新至23集</Text>
+                </View>
                 <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
                 <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
               </View>
               <View style={styles.video}>
-                <Image
-                  style={styles.videoCover}
-                  source={{ uri: 'http://puui.qpic.cn/tv/0/15715161_453254/0' }}
-                />
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15715161_453254/0' }}
+                  />
+                  <Text style={styles.videoDuration}>全52集</Text>
+                </View>
                 <Text style={styles.videoName} numberOfLines={1}>大王不容易[会员结局]</Text>
                 <Text style={styles.videoDesc} numberOfLines={1}>机洗夫妇开虐 两军阵前姬满用弓箭对准妲喜</Text>
               </View>
               <View style={styles.video}>
-                <Image
-                  style={styles.videoCover}
-                  source={{ uri: 'http://puui.qpic.cn/tv/0/15704861_330185/0' }}
-                />
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoCover}
+                    source={{ uri: 'http://puui.qpic.cn/tv/0/15704861_330185/0' }}
+                  />
+                  <Text style={styles.videoDuration}>更新至34集</Text>
+                </View>
                 <Text style={styles.videoName} numberOfLines={1}>青春最好时·会员全集</Text>
                 <Text style={styles.videoDesc} numberOfLines={1}> 张雪迎曾舜晞甜蜜牵手</Text>
               </View>
@@ -158,6 +173,36 @@ class Home extends Component {
                   <Text style={styles.videoDesc} numberOfLines={1}> 张雪迎曾舜晞甜蜜牵手</Text>
                 </View>
               </ScrollView>
+            </View>
+            <View style={styles.blockBottom}>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>更多电视剧</Text>
+                <Icon style={styles.buttonIcon} name="arrow-right" size={9}></Icon>
+              </View>
+              <View style={styles.buttonLink}>
+                <Text style={styles.buttonText}>换一批</Text>
+                <Icon style={styles.buttonIcon} name="refresh" size={10}></Icon>
+              </View>
+            </View>
+          </View>
+          <View style={styles.block}>
+            <View style={styles.blockTitle}>
+              <Icon name="screen-desktop" style={styles.titleIcon} />
+              <Text style={styles.titleMain}>电影</Text>
+              <Text style={styles.titleSub}>何所冬暖何所夏凉</Text>
+            </View>
+            <View style={styles.blockContent}>
+              <View style={styles.videoLeftVertical}>
+                <View style={styles.videoImage}>
+                  <Image
+                    style={styles.videoVerticalCover}
+                    source={{ uri: 'http://m.qiyipic.com/image/20170711/eb/26/a_100039047_m_601_m3_195_260.jpg' }}
+                  />
+                  <Text style={styles.videoDuration}>更新至43集</Text>
+                </View>
+                <Text style={styles.videoName} numberOfLines={1}>那年花开月正圆[会员22点抢先看]</Text>
+                <Text style={styles.videoDesc} numberOfLines={1}>想毁约？没那么容易！周莹出招狠治胡咏梅</Text>
+              </View>
             </View>
             <View style={styles.blockBottom}>
               <View style={styles.buttonLink}>
@@ -266,6 +311,14 @@ const styles = StyleSheet.create({
     width: screenWidth - 32,
     height: (screenWidth - 32) / 1.7794
   },
+
+  videoVerticalCover: {
+    borderRadius: 2,
+    backgroundColor: bgColor.gray,
+    width: videoCoverWidth,
+    height: 2 * (videoCoverWidth / 1.7794) + 20
+  },
+
   videoCover: {
     backgroundColor: bgColor.gray,
     borderRadius: 2,
@@ -279,6 +332,18 @@ const styles = StyleSheet.create({
   },
   videoDesc: {
     fontSize: font.xs
+  },
+  videoDuration: {
+    position: 'absolute',
+    marginLeft: 5,
+    paddingHorizontal: 3,
+    paddingVertical: 2,
+    left: 0,
+    bottom: 5,
+    fontSize: font.xs,
+    color: textColor.white,
+    backgroundColor: bgColor.blackLight,
+    borderRadius: 2,
   },
   blockBottom: {
     flexDirection: 'row',
