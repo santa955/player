@@ -1,3 +1,5 @@
+import normalize from './normalize'
+
 export const color = {
   white: 'rgba(255, 255, 255, 1)',
   green: 'rgba(32, 188, 34, 1)',
@@ -25,11 +27,11 @@ export const bgColor = {
 }
 
 export const font = {
-  xs: 12,
-  sm: 14,
-  nr: 16,
-  md: 18,
-  lg: 20,
-  xl: 22,
-  xxl: 24
+  xs: normalize(12),
+  sm: normalize(14),
+  nr: normalize(16),
+  md: normalize(18),
+  lg: normalize(20),
+  xl: normalize(22),
+  xxl: normalize(24)
 }
