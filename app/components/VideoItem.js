@@ -9,13 +9,13 @@ let videoCoverHeight = videoWidth / 1.7749;
 
 export default class VideoItem extends React.PureComponent {
   render() {
-    let video = this.props.video;
+    let { video, navigate } = this.props;
     let type = video.type;
     return (
       <TouchableOpacity
         activeOpacity={1}
         focusedOpacity={1}
-        onPress={() => { null }}>
+        onPress={() => navigate('Detail')}>
         <View style={[styles.video, type == 'full' ? styles.videoFull : '']}>
           <View style={styles.videoImage}>
             <Image

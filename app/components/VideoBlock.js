@@ -9,9 +9,7 @@ let layoutWidth = screenWidth - 32;
 
 export default class VideoBlock extends React.Component {
   render() {
-    let type = this.props.type;
-    let { title, subTitle, icon, videoes } = this.props.blockInfo;
-
+    let { title, subTitle, icon } = this.props.blockInfo;
     return (
       <View style={styles.block}>
         <View style={styles.blockTitle}>
@@ -20,7 +18,7 @@ export default class VideoBlock extends React.Component {
           <Text style={styles.titleSub}>{subTitle}</Text>
         </View>
         <View style={styles.blockContent}>
-          {this.renderVideoesList(type, videoes)}
+          {this.renderVideoesList()}
         </View>
         <View style={styles.blockBottom}>
           <View style={styles.buttonLink}>
@@ -36,15 +34,17 @@ export default class VideoBlock extends React.Component {
     )
   }
 
-  renderVideoesList(type, videoes) {
+  renderVideoesList() {
+    let { type, navigate, blockInfo } = this.props;
+    let videoes = blockInfo.videoes;
     if ('vertical' === type) {
-      return (<VideoList videoes={videoes}></VideoList>)
+      return (<VideoList navigate={navigate} videoes={videoes}></VideoList>)
     } else {
       return (
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}>
-          <VideoList videoes={videoes}></VideoList>
+          <VideoList navigate={navigate} videoes={videoes}></VideoList>
         </ScrollView>
       )
     }

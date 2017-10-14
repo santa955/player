@@ -19,6 +19,7 @@ class Home extends Component {
   componentDidMount() {
   }
   render() {
+    let { navigate } = this.props.navigation;
     return (
       <View>
         <StatusBar
@@ -47,8 +48,8 @@ class Home extends Component {
                 <Text style={styles.menuText}>使用帮助</Text>
               </View>
             </View>
-            <VideoBlock type="vertical" blockInfo={mockVideoBlocks[0]}></VideoBlock>
-            <VideoBlock type="horizontal" blockInfo={mockVideoBlocks[1]}></VideoBlock>
+            <VideoBlock type="vertical" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+            <VideoBlock type="horizontal" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
           </View>
         </ScrollView>
       </View>
