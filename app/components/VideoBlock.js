@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import Icon from './Icon';
-import { textColor, bgColor, font, commonStyles, color } from '../styles'
 import VideoList from './VedioList';
+import { textColor, bgColor, font, commonStyles, color } from '../styles'
 
 let { width: screenWidth, heigth: screenHeight } = Dimensions.get('window');
 let layoutWidth = screenWidth - 32;
@@ -35,9 +35,9 @@ export default class VideoBlock extends React.Component {
   }
 
   renderVideoesList() {
-    let { type, navigate, blockInfo } = this.props;
+    let { blockType, navigate, blockInfo } = this.props;
     let videoes = blockInfo.videoes;
-    if ('vertical' === type) {
+    if ('vertical' === blockType) {
       return (<VideoList navigate={navigate} videoes={videoes}></VideoList>)
     } else {
       return (
