@@ -1,22 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import VideoItem from './VideoItem';
 
 export default class VideoList extends React.Component {
   render() {
-    let videoes = this.props.videoes;
+    let { videoes, navigate } = this.props;
     return (
       <View style={styles.videoList}>
-        {this.renderItem(videoes)}
+        {this.renderItem(videoes, navigate)}
       </View>
 
     )
   }
 
-  renderItem(videoes) {
+  renderItem(videoes, navigate) {
     return videoes.map((video, index) => {
-      return <VideoItem key={index} video={video}></VideoItem>
+      return <VideoItem key={index} video={video} navigate={navigate}></VideoItem>
     })
   }
 }

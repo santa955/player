@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Icon from '../components/Icon';
 import Swiper from '../components/Swiper';
 
-import { textColor, bgColor, font, commonStyles, color } from '../styles'
-import VideoBlock from '../components/VideoBlock'
-import { mockSwipers, mockVideoBlocks } from '../mock/home'
+import { textColor, bgColor, font, commonStyles, color } from '../styles';
+import VideoBlock from '../components/VideoBlock';
+import FitImage from '../components/FitImage';
+import { mockSwipers, mockVideoBlocks } from '../mock/home';
 
 let screenWidth = Dimensions.get('window').width;
 let videoCoverWidth = (screenWidth - 40) / 2;
@@ -19,6 +20,7 @@ class Home extends Component {
   componentDidMount() {
   }
   render() {
+    let { navigate } = this.props.navigation;
     return (
       <View>
         <StatusBar
@@ -28,27 +30,27 @@ class Home extends Component {
         />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={commonStyles.root}>
-            <Swiper swipers={mockSwipers} ></Swiper>
+            <Swiper swipers={mockSwipers}></Swiper>
             <View style={styles.menus}>
               <View style={styles.menu}>
-                <Icon name="present" size={22} />
+                <Icon type="SimpleLineIcons" name="present" size={22} />
                 <Text style={styles.menuText}>每日抽奖</Text>
               </View>
               <View style={styles.menu}>
-                <Icon name="people" size={22} />
+                <Icon type="SimpleLineIcons" name="people" size={22} />
                 <Text style={styles.menuText}>邀请好友</Text>
               </View>
               <View style={styles.menu}>
-                <Icon name="envelope-letter" size={22} />
+                <Icon type="SimpleLineIcons" name="envelope-letter" size={22} />
                 <Text style={styles.menuText}>每日分享</Text>
               </View>
               <View style={styles.menu}>
-                <Icon name="book-open" size={22} />
+                <Icon type="SimpleLineIcons" name="book-open" size={22} />
                 <Text style={styles.menuText}>使用帮助</Text>
               </View>
             </View>
-            <VideoBlock type="vertical" blockInfo={mockVideoBlocks[0]}></VideoBlock>
-            <VideoBlock type="horizontal" blockInfo={mockVideoBlocks[1]}></VideoBlock>
+            <VideoBlock type="vertical" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+            <VideoBlock type="horizontal" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
           </View>
         </ScrollView>
       </View>
