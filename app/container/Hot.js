@@ -14,6 +14,7 @@ import {
 import { TabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Carousel from 'react-native-looped-carousel';
+import FitImage from '../components/FitImage';
 
 let screenWidth = Dimensions
   .get('window')
@@ -28,6 +29,9 @@ class Hot extends Component {
     return (
       <View>
         <Text>热播</Text>
+        <FitImage source={{ uri: 'http://puui.qpic.cn/tv/0/15697125_1080607/0' }}>
+          <Text>测试</Text>
+        </FitImage>
       </View>
     )
   }

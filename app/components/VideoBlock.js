@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Icon from './Icon';
 import { textColor, bgColor, font, commonStyles, color } from '../styles'
 import VideoList from './VedioList';
 
@@ -13,7 +13,7 @@ export default class VideoBlock extends React.Component {
     return (
       <View style={styles.block}>
         <View style={styles.blockTitle}>
-          <Icon name={icon} style={styles.titleIcon} />
+          <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.titleIcon} />
           <Text style={styles.titleMain}>{title}</Text>
           <Text style={styles.titleSub}>{subTitle}</Text>
         </View>
@@ -23,11 +23,11 @@ export default class VideoBlock extends React.Component {
         <View style={styles.blockBottom}>
           <View style={styles.buttonLink}>
             <Text style={styles.buttonText}>查看更多</Text>
-            <Icon style={styles.buttonIcon} name="arrow-right" size={9}></Icon>
+            <Icon type="SimpleLineIcons" iconStyle={styles.buttonIcon} name="arrow-right" size={9}></Icon>
           </View>
           <View style={styles.buttonLink}>
             <Text style={styles.buttonText}>换一批</Text>
-            <Icon style={styles.buttonIcon} name="refresh" size={10}></Icon>
+            <Icon type="SimpleLineIcons" iconStyle={styles.buttonIcon} name="refresh" size={10}></Icon>
           </View>
         </View>
       </View>

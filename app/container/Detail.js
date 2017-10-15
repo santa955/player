@@ -8,7 +8,7 @@ import Video from 'react-native-video';
 import Carousel from 'react-native-looped-carousel';
 import Header from '../components/Header/DetailHeader';
 import Icon from '../components/Icon'
-import { commonStyles, font, textColor, bgColor } from '../styles';
+import { commonStyles, font, textColor, bgColor, color } from '../styles';
 
 let screenWidth = Dimensions.get('window').width;
 
@@ -96,6 +96,111 @@ class Detail extends Component {
               </ScrollView>
             </View>
           </View>
+          <View style={[block.block]}>
+            <View style={block.blockHeader}>
+              <View style={block.headerMain}>
+                <View style={block.titleMain}>
+                  <Text style={[block.mainTitle]}>演员</Text>
+                </View>
+              </View>
+            </View>
+            <View style={block.blockContent}>
+              <ScrollView
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}>
+                <View style={styles.stars}>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/0513000059B7942EADBC0902FB0B7933' }} />
+                    <Text style={styles.starName}>刘诗诗</Text>
+                  </View>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/051300005962EF89859B5C051E072CD5' }} />
+                    <Text style={styles.starName}>陈伟霆</Text>
+                  </View>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/0513000058A553E2ADBC09033E033F28' }} />
+                    <Text style={styles.starName}>徐海乔</Text>
+                  </View>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/051300005888647667BC3C3B1E0AA8DA' }} />
+                    <Text style={styles.starName}>韩雪</Text>
+                  </View>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/05130000593F9527859B5C93DD0E6499' }} />
+                    <Text style={styles.starName}>黄梦莹</Text>
+                  </View>
+                  <View style={styles.star}>
+                    <Image style={styles.starAvart} source={{ uri: 'http://r1.ykimg.com/0513000058870FF667BC3C1D8309BB81' }} />
+                    <Text style={styles.starName}>刘奕君</Text>
+                  </View>
+                </View>
+              </ScrollView>
+            </View>
+          </View>
+          <View style={[block.block]}>
+            <View style={block.blockHeader}>
+              <View style={block.headerMain}>
+                <View style={block.titleMain}>
+                  <Text style={[block.mainTitle]}>精彩花絮</Text>
+                </View>
+              </View>
+            </View>
+            <View style={block.blockContent}>
+              <View style={styles.scenes}>
+                <View style={styles.scene}>
+                  <View style={styles.scenesCovers}>
+                    <Image style={styles.scenesCover} source={{ uri: 'http://puui.qpic.cn/qqvideo_ori/0/k0024yai87w_496_280/0' }} />
+                    <Text style={styles.scenesDuration}>01:34</Text>
+                  </View>
+                  <View style={styles.scenesSummary}>
+                    <Text style={styles.summeryText} numberOfLines={2} >一个媳妇，一个夫人，一个追求者，赵四艳福不浅啊,一个媳妇，一个夫人，一个追求者，赵四艳福不浅啊</Text>
+                    <View style={styles.summeryMeta}>
+                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
+                      <Text style={styles.metaText}>309,098次播放</Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={styles.scene}>
+                  <View style={styles.scenesCovers}>
+                    <Image style={styles.scenesCover} source={{ uri: 'http://vthumb.ykimg.com/05420101596ACA59ADC95BA5B1D09329' }} />
+                    <Text style={styles.scenesDuration}>05:30</Text>
+                  </View>
+                  <View style={styles.scenesSummary}>
+                    <Text style={styles.summeryText} numberOfLines={2} >《大军师司马懿之虎啸龙吟》第01集开播花絮</Text>
+                    <View style={styles.summeryMeta}>
+                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
+                      <Text style={styles.metaText}>30.8万次播放</Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={styles.scene}>
+                  <View style={styles.scenesCovers}>
+                    <Image style={styles.scenesCover} source={{ uri: 'http://vthumb.ykimg.com/05420708596206F5000001360807E6C6' }} />
+                    <Text style={styles.scenesDuration}>47:23</Text>
+                  </View>
+                  <View style={styles.scenesSummary}>
+                    <Text style={styles.summeryText} numberOfLines={2} >大军师司马懿之军师联盟 36</Text>
+                    <View style={styles.summeryMeta}>
+                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
+                      <Text style={styles.metaText}>4.3万次播放</Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View style={[block.block]}>
+            <View style={block.blockHeader}>
+              <View style={block.headerMain}>
+                <View style={block.titleMain}>
+                  <Text style={[block.mainTitle]}>大家都在看</Text>
+                </View>
+              </View>
+            </View>
+            <View style={block.blockContent}>
+
+            </View>
+          </View>
         </ScrollView>
       </View>
     )
@@ -117,6 +222,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
   actions: {
+    marginTop: -8,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end'
@@ -135,7 +241,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   videoSeries: {
-    marginTop: 8,
     marginLeft: -12,
     flexDirection: 'row',
     // flexWrap: 'wrap',
@@ -160,5 +265,76 @@ const styles = StyleSheet.create({
   },
   activeSeriesText: {
     color: textColor.white
+  },
+  stars: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  star: {
+    alignItems: 'center',
+    marginRight: 16
+  },
+  starAvart: {
+    width: 48,
+    height: 48,
+    resizeMode: 'cover',
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: color.colorDivid
+  },
+  starName: {
+    marginTop: 4,
+    fontSize: font.xs,
+    color: textColor.secondary
+  },
+  scenes: {
+    marginTop: -16,
+  },
+  scene: {
+    marginTop: 16,
+    flexDirection: 'row',
+    alignItems: 'flex-start'
+  },
+  scenesCovers: {
+    marginRight: 16,
+  },
+  scenesCover: {
+    width: 125,
+    height: 70,
+    borderRadius: 2
+  },
+  scenesDuration: {
+    paddingVertical: 2,
+    paddingHorizontal: 4,
+    position: 'absolute',
+    bottom: 4,
+    right: 4,
+    backgroundColor: bgColor.blackLight,
+    borderRadius: 2,
+    color: textColor.white,
+    fontSize: font.xs,
+  },
+  scenesSummary: {
+    flex: 1,
+    alignItems: 'flex-start',
+  },
+  summeryText: {
+    fontSize: font.sm,
+    color: textColor.primary
+  },
+  summeryMeta: {
+    marginTop: 12,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  metaText: {
+    fontSize: font.xs,
+    color: textColor.secondary
+  },
+  metaIcon: {
+    marginRight: 4,
+    fontSize: font.nr,
+    fontWeight: '600'
   }
+
 })

@@ -11,6 +11,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import Zocial from 'react-native-vector-icons/Zocial';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import { font } from '../styles';
 export default class Icon extends React.PureComponent {
   componentWillMount() {
@@ -44,6 +45,9 @@ export default class Icon extends React.PureComponent {
         break;
       case 'Feather':
         this.Icon = Feather;
+        break;
+      case 'EvilIcons':
+        this.Icon = EvilIcons;
         break;
       default:
         this.Icon = SimpleLineIcons;

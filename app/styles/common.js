@@ -43,7 +43,7 @@ export const commonStyles = {
     },
 
     blockContent: {
-      marginTop: 8
+      marginTop: 16
     }
   }
 }

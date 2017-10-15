@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import VideoItem from './VideoItem';
 
 export default class VideoList extends React.Component {
