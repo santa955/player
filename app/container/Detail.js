@@ -8,7 +8,7 @@ import Video from 'react-native-video';
 import Carousel from 'react-native-looped-carousel';
 import Header from '../components/Header/DetailHeader';
 import Icon from '../components/Icon'
-import { commonStyles, font, textColor, bgColor, color } from '../styles';
+import { blockStyle, commonStyles, font, textColor, bgColor, color } from '../styles';
 
 let screenWidth = Dimensions.get('window').width;
 
@@ -24,29 +24,28 @@ class Detail extends Component {
   componentDidMount() {
   }
   render() {
-    let { root, block } = commonStyles
     return (
       <View style={commonStyles.root}>
         <View style={styles.player}></View>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={[block.block, styles.videoInfo]}>
-            <View style={block.blockHeader}>
-              <View style={block.headerMain}>
-                <View style={block.titleMain}>
-                  <Text style={[block.mainTitle]}>神探夏洛克 第四季</Text>
+          <View style={[blockStyle.block, styles.videoInfo]}>
+            <View style={blockStyle.blockHeader}>
+              <View style={blockStyle.headerMain}>
+                <View style={blockStyle.titleMain}>
+                  <Text style={[blockStyle.mainTitle]}>神探夏洛克 第四季</Text>
                 </View>
-                <View style={[block.rightLink, block.mainTitleLink]}>
-                  <Text style={block.linkText}>简介</Text>
-                  <Icon style={block.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
+                <View style={[blockStyle.rightLink, blockStyle.mainTitleLink]}>
+                  <Text style={blockStyle.linkText}>简介</Text>
+                  <Icon style={blockStyle.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
                 </View>
               </View>
-              <View style={block.headerSub}>
-                <View style={block.subMain}>
-                  <Text style={block.subTitle}>全42集 | 3397.6万次播放 | 7.5分 | 传奇 </Text>
+              <View style={blockStyle.headerSub}>
+                <View style={blockStyle.subMain}>
+                  <Text style={blockStyle.subTitle}>全42集 | 3397.6万次播放 | 7.5分 | 传奇 </Text>
                 </View>
               </View>
             </View>
-            <View style={block.blockContent}>
+            <View style={blockStyle.blockContent}>
               <View style={styles.actions}>
                 <View style={styles.action}>
                   <Icon type="Feather" name="heart" iconStyle={styles.actionIcon} />
@@ -63,19 +62,19 @@ class Detail extends Component {
               </View>
             </View>
           </View>
-          <View style={[block.block]}>
-            <View style={block.blockHeader}>
-              <View style={block.headerMain}>
-                <View style={block.titleMain}>
-                  <Text style={[block.mainTitle]}>剧集</Text>
+          <View style={[blockStyle.block]}>
+            <View style={blockStyle.blockHeader}>
+              <View style={blockStyle.headerMain}>
+                <View style={blockStyle.titleMain}>
+                  <Text style={[blockStyle.mainTitle]}>剧集</Text>
                 </View>
-                <View style={[block.rightLink, block.mainTitleLink]}>
-                  <Text style={block.linkText}>更新至26集 / 周一至周四每晚更新2集</Text>
-                  <Icon style={block.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
+                <View style={[blockStyle.rightLink, blockStyle.mainTitleLink]}>
+                  <Text style={blockStyle.linkText}>更新至26集 / 周一至周四每晚更新2集</Text>
+                  <Icon style={blockStyle.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
                 </View>
               </View>
             </View>
-            <View style={block.blockContent}>
+            <View style={blockStyle.blockContent}>
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}>
@@ -96,15 +95,15 @@ class Detail extends Component {
               </ScrollView>
             </View>
           </View>
-          <View style={[block.block]}>
-            <View style={block.blockHeader}>
-              <View style={block.headerMain}>
-                <View style={block.titleMain}>
-                  <Text style={[block.mainTitle]}>演员</Text>
+          <View style={[blockStyle.block]}>
+            <View style={blockStyle.blockHeader}>
+              <View style={blockStyle.headerMain}>
+                <View style={blockStyle.titleMain}>
+                  <Text style={[blockStyle.mainTitle]}>演员</Text>
                 </View>
               </View>
             </View>
-            <View style={block.blockContent}>
+            <View style={blockStyle.blockContent}>
               <ScrollView
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}>
@@ -137,15 +136,15 @@ class Detail extends Component {
               </ScrollView>
             </View>
           </View>
-          <View style={[block.block]}>
-            <View style={block.blockHeader}>
-              <View style={block.headerMain}>
-                <View style={block.titleMain}>
-                  <Text style={[block.mainTitle]}>精彩花絮</Text>
+          <View style={[blockStyle.block]}>
+            <View style={blockStyle.blockHeader}>
+              <View style={blockStyle.headerMain}>
+                <View style={blockStyle.titleMain}>
+                  <Text style={[blockStyle.mainTitle]}>精彩花絮</Text>
                 </View>
               </View>
             </View>
-            <View style={block.blockContent}>
+            <View style={blockStyle.blockContent}>
               <View style={styles.scenes}>
                 <View style={styles.scene}>
                   <View style={styles.scenesCovers}>
@@ -189,15 +188,15 @@ class Detail extends Component {
               </View>
             </View>
           </View>
-          <View style={[block.block]}>
-            <View style={block.blockHeader}>
-              <View style={block.headerMain}>
-                <View style={block.titleMain}>
-                  <Text style={[block.mainTitle]}>大家都在看</Text>
+          <View style={[blockStyle.block]}>
+            <View style={blockStyle.blockHeader}>
+              <View style={blockStyle.headerMain}>
+                <View style={blockStyle.titleMain}>
+                  <Text style={[blockStyle.mainTitle]}>大家都在看</Text>
                 </View>
               </View>
             </View>
-            <View style={block.blockContent}>
+            <View style={blockStyle.blockContent}>
 
             </View>
           </View>

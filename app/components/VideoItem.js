@@ -1,23 +1,24 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import FitImage from '../components/FitImage';
 import VideoDuration from '../components/VideoDuration';
 import { textColor, bgColor, font } from '../styles';
-let { width: screenWidth, heigth: screenHeight } = Dimensions.get('window');
+let { width: screenWidth } = Dimensions.get('window');
 let layoutWidth = screenWidth - 32;
 let videoWidth = layoutWidth / 2 - 4;
-let videoCoverHeight = videoWidth / 1.7749;
 
 export default class VideoItem extends React.PureComponent {
   render() {
     let { video, navigate } = this.props;
     let type = video.type;
+    let width = type == 'full' ? layoutWidth : videoWidth;
+    let vWidth = Object.assign({}, StyleSheet.flatten(styles.video), { width })
     return (
       <TouchableOpacity
         activeOpacity={1}
         focusedOpacity={1}
         onPress={() => navigate('Detail')}>
-        <View style={[styles.video, type == 'full' ? styles.videoFull : '']}>
+        <View style={[vWidth]}>
           <View style={styles.videoImage}>
             <FitImage source={{ uri: video.cover }} style={styles.videoCover} />
             {video.duration ? <VideoDuration duration={video.duration} /> : null}
@@ -35,19 +36,6 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     marginLeft: 8,
     width: videoWidth,
-  },
-
-  videoSmall: {
-    width: videoWidth - 20,
-  },
-
-  videoFull: {
-    width: layoutWidth,
-  },
-
-  videoVerticalCover: {
-    width: layoutWidth,
-    height: 2 * (layoutWidth / 1.7794) + 20
   },
 
   videoCover: {
