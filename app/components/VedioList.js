@@ -4,18 +4,18 @@ import VideoItem from './VideoItem';
 
 export default class VideoList extends React.Component {
   render() {
-    let { videoes, navigate } = this.props;
+    let { videoes, navigate, type } = this.props;
     return (
       <View style={styles.videoList}>
-        {this.renderItem(videoes, navigate)}
+        {this.renderItem(videoes, navigate, type)}
       </View>
 
     )
   }
 
-  renderItem(videoes, navigate) {
+  renderItem(videoes, navigate, type) {
     return videoes.map((video, index) => {
-      return <VideoItem key={index} video={video} navigate={navigate}></VideoItem>
+      return <VideoItem key={index} type={type} video={video} navigate={navigate} />
     })
   }
 }

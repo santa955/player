@@ -5,20 +5,26 @@ import VideoDuration from '../components/VideoDuration';
 import { textColor, bgColor, font } from '../styles';
 let { width: screenWidth } = Dimensions.get('window');
 let layoutWidth = screenWidth - 32;
-let videoWidth = layoutWidth / 2 - 4;
 
-export default class VideoItem extends React.PureComponent {
+export default class VideoItem extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+  componentWillMount() {
+
+  }
   render() {
-    let { video, navigate } = this.props;
-    let type = video.type;
-    let width = type == 'full' ? layoutWidth : videoWidth;
-    let vWidth = Object.assign({}, StyleSheet.flatten(styles.video), { width })
+    let { video, navigate, type } = this.props;
+    let videoType = video.type;
+    let videoWidth = this.getWidth()
+    let width = videoType == 'full' ? layoutWidth : videoWidth;
+    let videoStyle = Object.assign({}, StyleSheet.flatten(styles.video), { width })
     return (
       <TouchableOpacity
         activeOpacity={1}
         focusedOpacity={1}
         onPress={() => navigate('Detail')}>
-        <View style={[vWidth]}>
+        <View style={[videoStyle]}>
           <View style={styles.videoImage}>
             <FitImage source={{ uri: video.cover }} style={styles.videoCover} />
             {video.duration ? <VideoDuration duration={video.duration} /> : null}
@@ -29,13 +35,22 @@ export default class VideoItem extends React.PureComponent {
       </TouchableOpacity>
     )
   }
+
+  getWidth() {
+    let { type } = this.props;
+    let videoWidth = layoutWidth / 2 - 4;
+    return type === 1
+      ? videoWidth
+      : type == 2
+        ? videoWidth - 12
+        : layoutWidth / 3 - 6;
+  }
 }
 
 const styles = StyleSheet.create({
   video: {
     marginBottom: 16,
     marginLeft: 8,
-    width: videoWidth,
   },
 
   videoCover: {

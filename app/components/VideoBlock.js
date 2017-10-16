@@ -13,7 +13,7 @@ export default class VideoBlock extends React.Component {
     return (
       <View style={styles.block}>
         <View style={styles.blockTitle}>
-          <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.titleIcon} />
+          {icon ? <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.titleIcon} /> : null}
           <Text style={styles.titleMain}>{title}</Text>
           <Text style={styles.titleSub}>{subTitle}</Text>
         </View>
@@ -35,18 +35,21 @@ export default class VideoBlock extends React.Component {
   }
 
   renderVideoesList() {
-    let { blockType, navigate, blockInfo } = this.props;
+    let { type, navigate, blockInfo } = this.props;
     let videoes = blockInfo.videoes;
-    if ('vertical' === blockType) {
-      return (<VideoList navigate={navigate} videoes={videoes}></VideoList>)
-    } else {
-      return (
-        <ScrollView
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}>
-          <VideoList navigate={navigate} videoes={videoes}></VideoList>
-        </ScrollView>
-      )
+    switch (parseInt(type, 10)) {
+      case 1:
+        return <VideoList type={1} navigate={navigate} videoes={videoes} />
+        break;
+      case 2:
+        return (
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+            <VideoList type={2} navigate={navigate} videoes={videoes} />
+          </ScrollView>)
+        break;
+      default:
+        return <VideoList navigate={navigate} videoes={videoes} />
+        break;
     }
   }
 }
