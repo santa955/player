@@ -49,9 +49,11 @@ class Home extends Component {
                 <Text style={styles.menuText}>使用帮助</Text>
               </View>
             </View>
-            <VideoBlock blockType="vertical" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
-            <VideoBlock blockType="horizontal" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
-            <VideoBlock blockType="vertical" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
+            <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+            <VideoBlock type="2" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
+            <VideoBlock type="3" navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
+            <VideoBlock type="2" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
+            <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
           </View>
         </ScrollView>
       </View>
