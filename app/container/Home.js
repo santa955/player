@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import Icon from '../components/Icon';
 import Swiper from '../components/Swiper';
-
-import { textColor, bgColor, font, commonStyles, color } from '../styles';
 import VideoBlock from '../components/VideoBlock';
 import FitImage from '../components/FitImage';
+import Header from '../components/Header/SearchHeader';
+import { textColor, bgColor, font, commonStyles, color } from '../styles';
 import { mockSwipers, mockVideoBlocks } from '../mock/home';
 
 let screenWidth = Dimensions.get('window').width;
@@ -26,8 +26,8 @@ class Home extends Component {
         <StatusBar
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
-          translucent
-        />
+          translucent/>
+        <Header />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={commonStyles.root}>
             <Swiper swipers={mockSwipers}></Swiper>

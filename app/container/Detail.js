@@ -7,7 +7,9 @@ import Video from 'react-native-video';
 
 import Carousel from 'react-native-looped-carousel';
 import Header from '../components/Header/DetailHeader';
-import Icon from '../components/Icon'
+import Icon from '../components/Icon';
+import VideoBlock from '../components/VideoBlock';
+import { mockVideoBlocks } from '../mock/home';
 import { blockStyle, commonStyles, font, textColor, bgColor, color } from '../styles';
 
 let screenWidth = Dimensions.get('window').width;
@@ -188,6 +190,7 @@ class Detail extends Component {
               </View>
             </View>
           </View>
+          <VideoBlock type="3" blockInfo={mockVideoBlocks[3]} />
           <View style={[blockStyle.block]}>
             <View style={blockStyle.blockHeader}>
               <View style={blockStyle.headerMain}>
@@ -197,7 +200,6 @@ class Detail extends Component {
               </View>
             </View>
             <View style={blockStyle.blockContent}>
-
             </View>
           </View>
         </ScrollView>

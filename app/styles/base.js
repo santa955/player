@@ -7,7 +7,8 @@ export const color = {
   blackSecondary: 'rgba(0, 0, 0, 0.54)',
   blackDisabled: 'rgba(0, 0, 0, 0.38)',
   colorDivid: '#e7e7e7',
-  colorBg: '#f8f8f8'
+  colorBg: '#f8f8f8',
+  colorBgWeight: '#f4f4f4',
 }
 
 export const textColor = {
@@ -22,6 +23,7 @@ export const textColor = {
 export const bgColor = {
   white: color.white,
   gray: color.colorBg,
+  grayWeight: color.colorBgWeight,
   green: 'rgba(32, 188, 34, 0.8)',
   blackLight: color.blackSecondary
 }

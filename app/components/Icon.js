@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
   },
 
   icon: {
-    fontSize: font.xs - 2
+    // fontSize: font.xs - 2
   }
 })
