@@ -17,7 +17,7 @@ export default class SearchHeader extends React.PureComponent {
         <View style={styles.headerContainer}>
           <View style={styles.inputContainer}>
             <Icon iconStyle={styles.inputIcon} name="search" type="Feather" size={14} />
-            <Text style={styles.placeholder}>那年花开月正圆</Text>
+            <Text style={styles.placeholder}>{this.props.placeholder}</Text>
           </View>
           <View style={styles.iconsContainer}>
             <Icon type="Feather" name="download" size={20} iconStyle={styles.actionIcon} />

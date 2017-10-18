@@ -205,3 +205,31 @@ export const mockVideoBlocks = [
     ]
   }
 ]
+
+export const mockMenus = [
+  {
+    name: '电视剧',
+    iconUrl: 'http://puui.qpic.cn/tv/0/15923897_453254/0'
+  },
+  {
+    name: '电影',
+    iconUrl: 'http://puui.qpic.cn/tv/0/15910750_498280/0'
+  },
+  {
+    name: '综艺',
+    iconUrl: 'http://puui.qpic.cn/tv/0/15910746_453254/0'
+  },
+  {
+    name: '动漫',
+    iconUrl: 'http://puui.qpic.cn/tv/0/11130503_300168/0'
+  },
+
+  {
+    name: '热门',
+    iconUrl: 'http://puui.qpic.cn/tv/0/15922082_498280/0'
+  },
+  {
+    name: '每日抽奖',
+    iconUrl: 'http://puui.qpic.cn/tv/0/11013199_300168/0'
+  },
+]

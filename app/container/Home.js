@@ -7,13 +7,11 @@ import Swiper from '../components/Swiper';
 import VideoBlock from '../components/VideoBlock';
 import FitImage from '../components/FitImage';
 import Header from '../components/Header/SearchHeader';
+import HomeMenu from '../components/Home/HomeMenu';
 import { textColor, bgColor, font, commonStyles, color } from '../styles';
-import { mockSwipers, mockVideoBlocks } from '../mock/home';
+import { mockSwipers, mockVideoBlocks, mockMenus } from '../mock/home';
 
-let screenWidth = Dimensions.get('window').width;
-let videoCoverWidth = (screenWidth - 40) / 2;
-let videoCoverHeight = videoCoverWidth / 1.7794;
-class Home extends Component {
+export default class Home extends Component {
   constructor() {
     super()
   }
@@ -26,29 +24,12 @@ class Home extends Component {
         <StatusBar
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
-          translucent/>
-        <Header />
+          translucent />
+        <Header placeholder="特勤精英" downloaded={true} />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={commonStyles.root}>
             <Swiper swipers={mockSwipers}></Swiper>
-            <View style={styles.menus}>
-              <View style={styles.menu}>
-                <Icon type="SimpleLineIcons" name="present" size={22} />
-                <Text style={styles.menuText}>每日抽奖</Text>
-              </View>
-              <View style={styles.menu}>
-                <Icon type="SimpleLineIcons" name="people" size={22} />
-                <Text style={styles.menuText}>邀请好友</Text>
-              </View>
-              <View style={styles.menu}>
-                <Icon type="SimpleLineIcons" name="envelope-letter" size={22} />
-                <Text style={styles.menuText}>每日分享</Text>
-              </View>
-              <View style={styles.menu}>
-                <Icon type="SimpleLineIcons" name="book-open" size={22} />
-                <Text style={styles.menuText}>使用帮助</Text>
-              </View>
-            </View>
+            <HomeMenu menus={mockMenus} />
             <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
             <VideoBlock type="2" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
             <VideoBlock type="3" navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
@@ -60,37 +41,3 @@ class Home extends Component {
     )
   }
 }
-
-export default Home
-
-const styles = StyleSheet.create({
-  swiper: {
-    resizeMode: 'contain',
-    width: screenWidth,
-    height: screenWidth / 1.7794
-  },
-  menus: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#fff'
-  },
-  menu: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden',
-  },
-  menuIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: '#f5f5f5'
-  },
-  menuText: {
-    marginTop: 5,
-    fontSize: 12,
-    color: '#333'
-  }
-})
