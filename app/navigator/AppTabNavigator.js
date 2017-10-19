@@ -24,18 +24,18 @@ const AppTabNavigator = TabNavigator({
       tabBarIcon: ({ tintColor }) => (<Icon name="fire" size={22} color={tintColor} />)
     })
   },
-  Video: {
-    screen: Video,
-    navigationOptions: ({ navigation }) => ({
-      tabBarLabel: '电影',
-      tabBarIcon: ({ tintColor }) => (<Icon name="camrecorder" size={22} color={tintColor} />)
-    })
-  },
   TV: {
     screen: TV,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: '电视剧',
       tabBarIcon: ({ tintColor }) => (<Icon name="screen-desktop" size={20} color={tintColor} />)
+    })
+  },
+  Video: {
+    screen: Video,
+    navigationOptions: ({ navigation }) => ({
+      tabBarLabel: '电影',
+      tabBarIcon: ({ tintColor }) => (<Icon name="camrecorder" size={22} color={tintColor} />)
     })
   },
   User: {
@@ -51,7 +51,7 @@ const AppTabNavigator = TabNavigator({
     swipeEnabled: false,
     animationEnabled: true,
     lazy: true,
-    initialRouteName: 'Home',
+    initialRouteName: 'TV',
     backBehavior: 'none',
     tabBarOptions: {
       activeTintColor: textColor.active,

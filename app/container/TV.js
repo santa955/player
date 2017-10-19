@@ -1,76 +1,41 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Image,
-  Dimensions,
-  ScrollView,
-  TouchableOpacity
-} from 'react-native';
-import { TabNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Carousel from 'react-native-looped-carousel';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
+import Icon from '../components/Icon';
+import Swiper from '../components/Swiper';
+import VideoBlock from '../components/VideoBlock';
+import FitImage from '../components/FitImage';
+import Header from '../components/Header/SearchHeader';
+import VideoLocationFilter from '../components/VideoLocationFilter';
+import { textColor, bgColor, font, commonStyles, color } from '../styles';
+import { mockSwipers, mockVideoBlocks, mockMenus } from '../mock/tv';
 
-let screenWidth = Dimensions
-  .get('window')
-  .width;
-class TV extends Component {
+export default class Home extends Component {
   constructor() {
     super()
   }
   componentDidMount() {
   }
   render() {
+    let { navigate } = this.props.navigation;
     return (
-      <View style={styles.root}></View>
+      <View>
+        <StatusBar
+          backgroundColor="rgba(0, 0, 0, 0)"
+          barStyle="light-content"
+          translucent />
+        <Header placeholder="特勤精英" downloaded={true} />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={commonStyles.root}>
+            <Swiper swipers={mockSwipers}></Swiper>
+            <VideoLocationFilter filters={mockMenus} />
+            <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+            <VideoBlock type="3" navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
+            <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
+          </View>
+        </ScrollView>
+      </View>
     )
   }
 }
-
-export default TV
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#f5f5f5'
-  },
-  wrapper: {},
-  slide: {
-    flex: 1,
-    resizeMode: 'contain',
-    height: screenWidth / 2
-  },
-  banner: {
-    height: 35
-  },
-  menus: {
-    marginVertical: 8,
-    paddingHorizontal: 10,
-    paddingTop: 0,
-    paddingBottom: 20,
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    backgroundColor: '#fff'
-  },
-  menu: {
-    width: (screenWidth - 20) / 4,
-    paddingTop: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    overflow: 'hidden'
-  },
-  menuImage: {
-    width: 45,
-    height: 45
-  },
-  menuText: {
-    fontSize: 12,
-    color: '#555'
-  }
-})

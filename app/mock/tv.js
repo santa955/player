@@ -1,49 +1,48 @@
 export const mockSwipers = [{
-  title: '使徒行者2·双语随意切 会员爽看10集',
+  title: '摔跤吧！爸爸',
   url: 'https://m.v.qq.com/cover/e/ei9w5141187ibo2.html',
-  imgUrl: 'http://puui.qpic.cn/tv/0/15720663_1080607/0'
+  imgUrl: 'http://puui.qpic.cn/tv/0/15917842_498280/0'
 }, {
-  title: '绣春刀·修罗战场',
+  title: '维和步兵营[会员抢先看]',
   url: 'https://m.v.qq.com/cover/e/ei9w5141187ibo2.html',
-  imgUrl: 'http://puui.qpic.cn/tv/0/15741885_1080607/0'
+  imgUrl: 'http://puui.qpic.cn/tv/0/15924056_1080607/0'
 }, {
-  title: '2017腾讯影业年度发布会重磅来袭',
+  title: '使徒行者2[会员结局]',
   url: 'https://m.v.qq.com/cover/3/3xbhgx8ebwhh59c.html',
-  imgUrl: 'http://puui.qpic.cn/tv/0/15697125_1080607/0'
+  imgUrl: 'http://puui.qpic.cn/tv/0/15938028_330185/0'
 }, {
-  title: '反转人生',
+  title: '国民大生活',
   url: 'https://m.v.qq.com/cover/h/hdxbi4p62aqmhjj.html',
-  imgUrl: 'http://puui.qpic.cn/tv/0/15743068_1080607/0'
+  imgUrl: 'http://puui.qpic.cn/tv/0/15924580_330185/0'
 }]
 
 export const mockVideoBlocks = [
   {
-    title: '今日热播',
-    subTitle: '无证之罪：严良骆闻双雄对决',
-    icon: 'fire',
+    title: '同步追剧',
+    subTitle: '精彩！袁姗姗手撕狐狸精闺蜜',
     videoes: [
       {
-        cover: 'http://puui.qpic.cn/tv/0/15844711_1080607/0',
+        cover: 'http://puui.qpic.cn/tv/0/15947170_453254/0',
         url: '',
-        name: '使徒行者2·会员抢先看',
-        desc: 'TVB最经典卧底剧归来！生死暗战谁是最后赢家？',
-        duration: '更新至20集',
+        name: '大话西游[更新]',
+        desc: '至尊宝蠢萌骗月光宝盒！会员抢先看',
+        duration: '更新至36集',
         type: 'full'
       },
       {
-        cover: 'http://puui.qpic.cn/tv/0/15846421_498280/0',
+        cover: 'http://puui.qpic.cn/tv/0/15919866_330185/0',
         url: '',
-        name: '鹿晗关晓彤公布恋情',
-        desc: '给大家介绍我女朋友',
-        duration: '',
+        name: 'X战警：军团  ',
+        desc: '大表哥突破次元壁吻女友！',
+        duration: '更新至06集',
         type: 'sm'
       },
       {
-        cover: 'http://puui.qpic.cn/tv/0/15714702_498280/0',
+        cover: 'http://puui.qpic.cn/tv/0/15945830_330185/0',
         url: '',
-        name: '美人鱼',
-        desc: '这段每次看都会笑哭',
-        duration: '',
+        name: '琅琊榜[全集]',
+        desc: '胡歌演惊魂权谋',
+        duration: '全56集',
         type: 'sm'
       },
       {
@@ -55,26 +54,25 @@ export const mockVideoBlocks = [
         type: 'sm'
       },
       {
-        cover: 'http://puui.qpic.cn/tv/0/15844811_330185/0',
+        cover: 'http://puui.qpic.cn/tv/0/15888563_330185/0',
         url: '',
-        name: '国民大生活·明晚首播',
-        desc: '郑恺袁姗姗变欢喜冤家',
-        duration: '02:40',
+        name: '权力的游戏第七季',
+        desc: '毋庸置疑的美剧巅峰',
+        duration: '全7集',
         type: 'sm'
       }
     ]
   },
   {
-    title: '今日热播',
-    subTitle: '无证之罪：严良骆闻双雄对决',
-    icon: 'fire',
+    title: '古装经典',
+    subTitle: '重温经典悬疑探案剧！你的智商余额还够吗？',
     videoes: [
       {
-        cover: 'http://puui.qpic.cn/tv/0/15844711_1080607/0',
+        cover: 'http://m.qiyipic.com/common/lego/20171018/cb7cb5ca49a340c0a36d7135726b71b0.jpg',
         url: '',
-        name: '使徒行者2·会员抢先看',
-        desc: 'TVB最经典卧底剧归来！生死暗战谁是最后赢家？',
-        duration: '更新至20集',
+        name: '天泪传奇之凤凰无双',
+        desc: '郑元畅爱上王丽坤',
+        duration: '更新至28集',
         type: 'full'
       },
       {
@@ -158,7 +156,7 @@ export const mockVideoBlocks = [
     ]
   },
   {
-    title: '鸡年七星高照之七政星',
+    title: '热剧点播台',
     videoes: [
       {
         cover: 'http://r1.ykimg.com/051600005913CD73AD9E076AFD06DBC0',
@@ -201,6 +199,27 @@ export const mockVideoBlocks = [
         name: '巴黎危机',
         desc: '再现真实恐袭法兰西',
         duration: '02:40',
+      },
+      {
+        cover: 'http://m.qiyipic.com/image/20170803/d5/08/a_100040138_m_601_m8_195_260.jpg',
+        url: '',
+        name: '轩辕剑之汉之云',
+        desc: '',
+        duration: '更新至46集',
+      },
+      {
+        cover: 'http://pic3.qiyipic.com/common/lego/20171013/1bc4bc1450df49368dbd6c807bbd8758.gif',
+        url: '',
+        name: '将界2',
+        desc: '',
+        duration: '12集全',
+      },
+      {
+        cover: 'http://m.qiyipic.com/image/20170715/b1/27/a_100017096_m_601_m3_195_260.jpg',
+        url: '',
+        name: '少数派报告第1季',
+        desc: '',
+        duration: '10集全',
       }
     ]
   }
@@ -208,15 +227,15 @@ export const mockVideoBlocks = [
 
 export const mockMenus = [
   {
-    name: '电视剧',
+    name: '内地',
     iconUrl: 'http://puui.qpic.cn/tv/0/15923897_453254/0'
   },
   {
-    name: '电影',
+    name: '港剧',
     iconUrl: 'http://puui.qpic.cn/tv/0/15910750_498280/0'
   },
   {
-    name: '综艺',
+    name: '韩剧',
     iconUrl: 'http://puui.qpic.cn/tv/0/15910746_453254/0'
   },
   {
@@ -224,11 +243,19 @@ export const mockMenus = [
     iconUrl: 'http://g3.ykimg.com/05420101597085CD8B79DC986A349B35'
   },
   {
-    name: '动漫',
+    name: '言情',
     iconUrl: 'http://puui.qpic.cn/tv/0/11130503_300168/0'
   },
   {
-    name: '每日抽奖',
+    name: '古装',
     iconUrl: 'http://puui.qpic.cn/tv/0/11013199_300168/0'
   },
+  {
+    name: '偶像',
+    iconUrl: 'http://puui.qpic.cn/tv/0/11130503_300168/0'
+  },
+  {
+    name: '筛选',
+    iconUrl: 'http://puui.qpic.cn/tv/0/11013199_300168/0'
+  }
 ]
