@@ -9,6 +9,7 @@ import Carousel from 'react-native-looped-carousel';
 import Header from '../components/Header/DetailHeader';
 import Icon from '../components/Icon';
 import VideoBlock from '../components/VideoBlock';
+import Modal from '../components/Modal';
 import { mockVideoBlocks } from '../mock/home';
 import { blockStyle, commonStyles, font, textColor, bgColor, color } from '../styles';
 

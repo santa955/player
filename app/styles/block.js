@@ -9,12 +9,11 @@ export const blockStyle = {
   headerMain: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   mainTitle: {
-    fontSize: base.font.sm,
-    color: base.textColor.primary,
-    fontWeight: '600'
+    fontSize: base.font.md,
+    color: base.textColor.primary
   },
   mainTitleLink: {
     flexDirection: 'row',

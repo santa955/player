@@ -68,7 +68,7 @@ export default class Icon extends React.PureComponent {
       <View style={[styles.iconContainer, this.props.style]}>
         <this.Icon
           style={[styles.icon, iconStyle && iconStyle]}
-          size={size}
+          size={size && size}
           name={name}
           color={color && color} />
       </View>

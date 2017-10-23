@@ -31,7 +31,7 @@ const AppStackNavigator = StackNavigator({
     }
   }
 }, {
-    initialRouteName: 'Tabs',
+    initialRouteName: 'Detail',
     transitionConfig: () => {
       return {
         screenInterpolator: (sceneProps) => {
