@@ -51,7 +51,7 @@ const AppTabNavigator = TabNavigator({
     swipeEnabled: false,
     animationEnabled: true,
     lazy: true,
-    initialRouteName: 'TV',
+    initialRouteName: 'User',
     backBehavior: 'none',
     tabBarOptions: {
       activeTintColor: textColor.active,

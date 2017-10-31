@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, Easing } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Video from 'react-native-video';
-
 import Carousel from 'react-native-looped-carousel';
+import Modal from 'react-native-modalbox';
 import Header from '../components/Header/DetailHeader';
 import Icon from '../components/Icon';
 import VideoBlock from '../components/VideoBlock';
-import Modal from '../components/Modal';
 import { mockVideoBlocks } from '../mock/home';
 import { blockStyle, commonStyles, font, textColor, bgColor, color } from '../styles';
 
@@ -22,7 +21,12 @@ class Detail extends Component {
     }
   }
   constructor() {
-    super()
+    super();
+    this.state = {
+      isOpen: false,
+      isDisabled: false,
+      swipeToClose: true
+    };
   }
   componentDidMount() {
   }
@@ -71,10 +75,15 @@ class Detail extends Component {
                 <View style={blockStyle.titleMain}>
                   <Text style={[blockStyle.mainTitle]}>剧集</Text>
                 </View>
-                <View style={[blockStyle.rightLink, blockStyle.mainTitleLink]}>
-                  <Text style={blockStyle.linkText}>更新至26集 / 周一至周四每晚更新2集</Text>
-                  <Icon style={blockStyle.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
-                </View>
+                <TouchableOpacity
+                  activeOpacity={1}
+                  focusedOpacity={1}
+                  onPress={() => { this.showModal() }}>
+                  <View style={[blockStyle.rightLink, blockStyle.mainTitleLink]}>
+                    <Text style={blockStyle.linkText}>更新至26集 / 周一至周四每晚更新2集</Text>
+                    <Icon style={blockStyle.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
+                  </View>
+                </TouchableOpacity>
               </View>
             </View>
             <View style={blockStyle.blockContent}>
@@ -192,20 +201,28 @@ class Detail extends Component {
             </View>
           </View>
           <VideoBlock type="3" blockInfo={mockVideoBlocks[3]} />
-          <View style={[blockStyle.block]}>
-            <View style={blockStyle.blockHeader}>
-              <View style={blockStyle.headerMain}>
-                <View style={blockStyle.titleMain}>
-                  <Text style={[blockStyle.mainTitle]}>大家都在看</Text>
-                </View>
-              </View>
-            </View>
-            <View style={blockStyle.blockContent}>
-            </View>
-          </View>
+          <VideoBlock type="1" blockInfo={mockVideoBlocks[1]} />
+
         </ScrollView>
+        <Modal isOpen={this.state.isOpen} style={[styles.modal, styles.modal4]}
+          position={"bottom"}
+          ref={"modal4"}
+          easing={Easing.elastic(1)}
+          backdrop={false}
+          backButtonClose={true}
+          onClosed={() => { this.onModalClose() }}>
+          <Text style={styles.text}>Modal on bottom with backdrop</Text>
+        </Modal>
       </View>
     )
+  }
+
+  showModal() {
+    this.setState({ isOpen: true })
+  }
+
+  onModalClose() {
+    this.setState({ isOpen: false })
   }
 }
 

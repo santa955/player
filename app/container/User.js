@@ -1,24 +1,8 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Image,
-  Dimensions,
-  ScrollView,
-  TouchableOpacity
-} from 'react-native';
-import { TabNavigator } from 'react-navigation';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Carousel from 'react-native-looped-carousel';
-
-let screenWidth = Dimensions
-  .get('window')
-  .width;
-class User extends Component {
+import React from 'react';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
+import { textColor, bgColor, font, commonStyles, color, blockStyle } from '../styles';
+import Icon from '../components/Icon';
+class User extends React.Component {
   constructor() {
     super()
   }
@@ -26,7 +10,54 @@ class User extends Component {
   }
   render() {
     return (
-      <View style={styles.root}></View>
+      <View>
+        <StatusBar
+          backgroundColor="rgba(0, 0, 0, 0)"
+          barStyle="light-content"
+          translucent />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={commonStyles.root}>
+            <View style={[blockStyle.block, styles.userInfoContainer]}>
+              <View style={styles.userAavatar}>
+                <Image style={styles.avatar} source={{ uri: 'http://i.gtimg.cn/qqlive/images/20150608/avatar.png' }} />
+                <Text style={styles.level}>LV. 12</Text>
+              </View>
+              <View style={styles.userInfo}>
+                <View style={styles.loginStatus}>
+                  <Text style={styles.status}>登录/注册</Text>
+                  <Icon iconStyle={styles.loginArrow} type="SimpleLineIcons" name="arrow-right" size={13}></Icon>
+                </View>
+                <View style={styles.tips}>
+                  <Text style={styles.tipsText}>登录后才能查看更多精彩视频哦~</Text>
+                </View>
+              </View>
+              <View style={styles.settingContainer}>
+                <Icon type="MaterialIcons" name="settings" size={22} iconStyle={styles.userSetting} />
+              </View>
+            </View>
+            <View style={[blockStyle.block, styles.userMenus]}>
+              <View style={styles.menus}>
+                <View style={styles.menu}>
+                  <Icon iconStyle={styles.actionIcon} type="Foundation" name="crown" size={24}></Icon>
+                  <Text style={styles.menuText}>会员中心</Text>
+                </View>
+                <View style={styles.menu}>
+                  <Icon type="Feather" name="download" size={22} iconStyle={styles.actionIcon} />
+                  <Text style={styles.menuText}>我的下载</Text>
+                </View>
+                <View style={styles.menu}>
+                  <Icon type="Feather" name="clock" size={22} iconStyle={styles.actionIcon} />
+                  <Text style={styles.menuText}>播放记录</Text>
+                </View>
+                <View style={styles.menu}>
+                  <Icon type="Feather" name="star" size={22} iconStyle={styles.actionIcon} />
+                  <Text style={styles.menuText}>我的收藏</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
     )
   }
 }
@@ -34,43 +65,75 @@ class User extends Component {
 export default User
 
 const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#f5f5f5'
+  userInfoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 16,
+    paddingBottom: 16
   },
-  wrapper: {},
-  slide: {
-    flex: 1,
-    resizeMode: 'contain',
-    height: screenWidth / 2
+  userAavatar: {
+    alignItems: 'center'
   },
-  banner: {
-    height: 35
+  avatar: {
+    width: 72,
+    height: 72,
+    borderRadius: 36
+  },
+  level: {
+    position: 'absolute',
+    paddingHorizontal: 8,
+    bottom: -4,
+    textAlign: 'center',
+    backgroundColor: 'rgb(246, 225, 62)',
+    color: textColor.white,
+    fontSize: font.xs,
+    borderRadius: 2
+  },
+  userInfo: {
+    marginLeft: 16
+  },
+  loginStatus: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8
+  },
+  status: {
+    fontSize: font.md,
+    color: textColor.primary
+  },
+  loginArrow: {
+    marginLeft: 4,
+    color: textColor.primary
+  },
+  tipsText: {
+    fontSize: font.xs,
+    color: textColor.secondary
+  },
+  settingContainer:{
+    position:'absolute',
+    top: 16,
+    right: 16,
+  },
+  userSetting:{
+    color: textColor.disabled,
+  },
+  userMenus: {
+    borderTopWidth: StyleSheet.hairlineWidth,
+    marginTop: -8,
+    borderColor: color.colorDivid
   },
   menus: {
-    marginVertical: 8,
-    paddingHorizontal: 10,
-    paddingTop: 0,
-    paddingBottom: 20,
-    alignItems: 'center',
-    flexWrap: 'wrap',
     flexDirection: 'row',
-    backgroundColor: '#fff'
-  },
-  menu: {
-    width: (screenWidth - 20) / 4,
-    paddingTop: 10,
-    justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden'
+    justifyContent: 'space-between',
   },
-  menuImage: {
-    width: 45,
-    height: 45
+
+  actionIcon: {
+    color: textColor.disabled
   },
   menuText: {
-    fontSize: 12,
-    color: '#555'
+    marginTop: 4,
+    fontSize: font.xs,
+    color: textColor.secondary
   }
 })
