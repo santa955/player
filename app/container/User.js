@@ -2,6 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import { textColor, bgColor, font, commonStyles, color, blockStyle } from '../styles';
 import Icon from '../components/Icon';
+import MenusList from '../components/MenusList';
+
+import { userMenus } from '../mock/user';
+
 class User extends React.Component {
   constructor() {
     super()
@@ -10,13 +14,13 @@ class User extends React.Component {
   }
   render() {
     return (
-      <View>
+      <View style={commonStyles.root}>
         <StatusBar
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
           translucent />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={commonStyles.root}>
+          <View>
             <View style={[blockStyle.block, styles.userInfoContainer]}>
               <View style={styles.userAavatar}>
                 <Image style={styles.avatar} source={{ uri: 'http://i.gtimg.cn/qqlive/images/20150608/avatar.png' }} />
@@ -32,7 +36,7 @@ class User extends React.Component {
                 </View>
               </View>
               <View style={styles.settingContainer}>
-                <Icon type="MaterialIcons" name="settings" size={22} iconStyle={styles.userSetting} />
+                <Icon type="SimpleLineIcons" name="settings" size={22} iconStyle={styles.userSetting} />
               </View>
             </View>
             <View style={[blockStyle.block, styles.userMenus]}>
@@ -55,6 +59,7 @@ class User extends React.Component {
                 </View>
               </View>
             </View>
+            <MenusList menus={userMenus}/>
           </View>
         </ScrollView>
       </View>

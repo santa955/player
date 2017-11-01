@@ -6,9 +6,13 @@ export const color = {
   blackPrimary: 'rgba(0, 0, 0, 0.87)',
   blackSecondary: 'rgba(0, 0, 0, 0.54)',
   blackDisabled: 'rgba(0, 0, 0, 0.38)',
-  colorDivid: '#e7e7e7',
+  colorDivid: '#efefef',
   colorBg: '#f8f8f8',
   colorBgWeight: '#f4f4f4',
+  blue: 'rgba(0, 114, 198, 0.7)',
+  yellow: 'rgb(242, 188, 34)',
+  grassGreen: 'rgb(121, 202, 86)',
+  red: 'rgb(207, 75, 83)'
 }
 
 export const textColor = {
