@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   },
 
   actionIcon: {
-    color: textColor.disabled
+    color: textColor.secondary
   },
   menuText: {
     marginTop: 4,

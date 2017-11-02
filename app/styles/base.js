@@ -7,6 +7,7 @@ export const color = {
   blackSecondary: 'rgba(0, 0, 0, 0.54)',
   blackDisabled: 'rgba(0, 0, 0, 0.38)',
   colorDivid: '#efefef',
+  colorTip: '#b8b8b8',
   colorBg: '#f8f8f8',
   colorBgWeight: '#f4f4f4',
   blue: 'rgba(0, 114, 198, 0.7)',
@@ -21,7 +22,8 @@ export const textColor = {
   disabled: color.blackDisabled,
   link: color.green,
   white: color.white,
-  active: color.green
+  active: color.green,
+  tip: color.colorTip
 }
 
 export const bgColor = {

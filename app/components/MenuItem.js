@@ -25,7 +25,7 @@ export default class MenuItem extends React.PureComponent {
             <Text style={[styles.subText]}>{tip}</Text>
             <Icon
               style={styles.arrowIcon}
-              iconStyle={{ color: '#ccc',fontWeight: 'blod' }}
+              iconStyle={{ color: textColor.tip,fontWeight: 'blod' }}
               type="SimpleLineIcons"
               name="arrow-right"
               size={12} />
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   subText: {
     fontSize: font.xs,
-    color: textColor.disabled
+    color: textColor.tip
   },
   mainIcon: {
     marginRight: 12
