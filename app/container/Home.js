@@ -25,7 +25,7 @@ export default class Home extends Component {
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
           translucent />
-        <Header placeholder="特勤精英" downloaded={true} />
+        {/*<Header placeholder="特勤精英" downloaded={true} />*/}
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={commonStyles.root}>
             <Swiper swipers={mockSwipers}></Swiper>
