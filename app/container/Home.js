@@ -8,7 +8,7 @@ import VideoBlock from '../components/VideoBlock';
 import FitImage from '../components/FitImage';
 import Header from '../components/Header/SearchHeader';
 import HomeMenu from '../components/Home/HomeMenu';
-import { textColor, bgColor, font, commonStyles, color } from '../styles';
+import { font, commonStyles, color } from '../styles';
 import { mockSwipers, mockVideoBlocks, mockMenus } from '../mock/home';
 
 export default class Home extends Component {

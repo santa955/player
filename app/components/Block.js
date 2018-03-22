@@ -1,44 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
+import Icon from './Icon';
+import { font, commonStyles, color } from '../styles'
 
-export default class Block extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+let { width: screenWidth, heigth: screenHeight } = Dimensions.get('window');
+let layoutWidth = screenWidth - 16;
 
+export default class VideoBlock extends React.Component {
   render() {
+    let { title, subTitle, icon } = this.props.blockInfo;
     return (
-      <View style={[block.block, ...this.props.style]}>
-        <View style={block.blockHeader}>
-          <View style={block.headerMain}>
-            <View style={block.titleMain}>
-              <Text style={[block.mainTitle]}>{this.props.title}</Text>
-            </View>
-            <View style={[block.rightLink, block.mainTitleLink]}>
-              <Text style={block.linkText}>简介</Text>
-              <Icon style={block.linkIcon} type="SimpleLineIcons" name="arrow-right"></Icon>
-            </View>
-          </View>
-          <View style={block.headerSub}>
-            <View style={block.subMain}>
-              <Text style={block.subTitle}>全42集 | 3397.6万次播放 | 7.5分 | 传奇 </Text>
-            </View>
+      <View style={styles.block}>
+        <View style={styles.blockHeader}>
+          {icon ? <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.headerIcon} /> : null}
+          <View style={styles.headerTitle}>
+            <Text style={styles.titleMain}>{title}</Text>
+            <Text style={styles.titleSub}>{subTitle}</Text>
           </View>
         </View>
-        <View style={block.blockContent}>
-          <View style={styles.actions}>
-            <View style={styles.action}>
-              <Icon type="Feather" name="heart" iconStyle={styles.actionIcon} />
-              <Text style={styles.actionText}>收藏</Text>
-            </View>
-            <View style={styles.action}>
-              <Icon type="Feather" name="download" iconStyle={styles.actionIcon} />
-              <Text style={styles.actionText}>下载</Text>
-            </View>
-            <View style={styles.action}>
-              <Icon type="Feather" name="star" iconStyle={styles.actionIcon} />
-              <Text style={styles.actionText}>评分</Text>
-            </View>
+        <View style={styles.blockContent}>
+          {this.props.children}
+        </View>
+        <View style={styles.blockBottom}>
+          <View style={styles.buttonLink}>
+            <Text style={styles.buttonText}>查看更多</Text>
+            <Icon type="SimpleLineIcons" iconStyle={styles.buttonIcon} name="arrow-right" size={9}></Icon>
+          </View>
+          <View style={styles.buttonLink}>
+            <Text style={styles.buttonText}>换一批</Text>
+            <Icon type="SimpleLineIcons" iconStyle={styles.buttonIcon} name="refresh" size={10}></Icon>
           </View>
         </View>
       </View>
@@ -46,43 +36,70 @@ export default class Block extends React.Component {
   }
 }
 
-export const blockStyle = {
+const styles = StyleSheet.create({
   block: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    marginBottom: 8,
-    backgroundColor: base.bgColor.white,
+    paddingHorizontal: 8,
+    paddingVertical: 16,
+    marginTop: 8,
+    backgroundColor: color.white
   },
-  headerMain: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  mainTitle: {
-    fontSize: base.font.sm,
-    color: base.textColor.primary,
-    fontWeight: '600'
-  },
-  mainTitleLink: {
+
+  blockHeader: {
     flexDirection: 'row',
     alignItems: 'center'
   },
-  linkText: {
-    fontSize: base.font.xs,
-    color: base.textColor.blackSecondary
+
+  headerIcon: {
+    marginRight: 8,
+    fontSize: font.lg,
+    color: color.green
   },
-  linkIcon: {
-    marginLeft: 4,
+
+  headerTitle:{
+    flexDirection: 'row',
+    alignItems: 'baseline'
   },
-  headerSub: {
-    marginTop: 4,
+
+  titleMain: {
+    fontSize: font.md,
+    color: color.blackPrimary
   },
-  subTitle: {
-    fontSize: base.font.xs,
-    color: base.textColor.secondary,
+
+  titleSub: {
+    fontSize: font.xs,
+    marginLeft: 8
   },
 
   blockContent: {
-    marginTop: 16
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginTop: 16,
+    marginLeft: -8
+  },
+
+  blockBottom: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+
+  buttonLink: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: layoutWidth / 2,
+  },
+
+  buttonText: {
+    fontSize: font.xs,
+    color: color.green,
+    textAlign: 'center',
+  },
+
+  buttonIcon: {
+    marginLeft: 8,
+    color: color.green,
+    textAlign: 'center',
+    textAlignVertical: 'center'
   }
-}
+})

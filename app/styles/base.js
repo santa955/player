@@ -43,3 +43,8 @@ export const font = {
   xl: normalize(22),
   xxl: normalize(24)
 }
+
+export const layout = {
+  paddingHorizontal: 8,
+  paddingVertical: 16
+}

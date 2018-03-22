@@ -1,7 +1,7 @@
 import * as base from './base';
 export const blockStyle = {
   block: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 8,
     marginBottom: 8,
     backgroundColor: base.bgColor.white,
@@ -33,7 +33,6 @@ export const blockStyle = {
     fontSize: base.font.xs,
     color: base.textColor.secondary,
   },
-
   blockContent: {
     marginTop: 16
   }

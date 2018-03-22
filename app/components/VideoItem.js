@@ -4,7 +4,7 @@ import FitImage from '../components/FitImage';
 import VideoDuration from '../components/VideoDuration';
 import { textColor, bgColor, font } from '../styles';
 let { width: screenWidth } = Dimensions.get('window');
-let layoutWidth = screenWidth - 32;
+let layoutWidth = screenWidth - 16;
 
 export default class VideoItem extends React.Component {
   constructor(props) {
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
 
   videoCover: {
     backgroundColor: bgColor.gray,
-    borderRadius: 2,
+    borderRadius: 1,
     resizeMode: 'cover',
   },
   videoName: {

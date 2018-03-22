@@ -2,20 +2,22 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, Dimensions } from 'react-native';
 import Icon from './Icon';
 import VideoList from './VedioList';
-import { textColor, bgColor, font, commonStyles, color } from '../styles'
+import { font, commonStyles, color } from '../styles'
 
 let { width: screenWidth, heigth: screenHeight } = Dimensions.get('window');
-let layoutWidth = screenWidth - 32;
+let layoutWidth = screenWidth - 16;
 
 export default class VideoBlock extends React.Component {
   render() {
     let { title, subTitle, icon } = this.props.blockInfo;
     return (
       <View style={styles.block}>
-        <View style={styles.blockTitle}>
-          {icon ? <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.titleIcon} /> : null}
-          <Text style={styles.titleMain}>{title}</Text>
-          <Text style={styles.titleSub}>{subTitle}</Text>
+        <View style={styles.blockHeader}>
+          {icon ? <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.headerIcon} /> : null}
+          <View style={styles.headerTitle}>
+            <Text style={styles.titleMain}>{title}</Text>
+            <Text style={styles.titleSub}>{subTitle}</Text>
+          </View>
         </View>
         <View style={styles.blockContent}>
           {this.renderVideoesList()}
@@ -56,26 +58,31 @@ export default class VideoBlock extends React.Component {
 
 const styles = StyleSheet.create({
   block: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 16,
     marginTop: 8,
-    backgroundColor: bgColor.white
+    backgroundColor: color.white
   },
 
-  blockTitle: {
+  blockHeader: {
     flexDirection: 'row',
     alignItems: 'center'
   },
 
-  titleIcon: {
+  headerIcon: {
     marginRight: 8,
     fontSize: font.lg,
-    color: textColor.active
+    color: color.green
+  },
+
+  headerTitle:{
+    flexDirection: 'row',
+    alignItems: 'baseline'
   },
 
   titleMain: {
     fontSize: font.md,
-    color: textColor.primary
+    color: color.blackPrimary
   },
 
   titleSub: {
@@ -95,20 +102,23 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+
   buttonLink: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     width: layoutWidth / 2,
   },
+
   buttonText: {
     fontSize: font.xs,
-    color: textColor.link,
+    color: color.green,
     textAlign: 'center',
   },
+
   buttonIcon: {
     marginLeft: 8,
-    color: textColor.link,
+    color: color.green,
     textAlign: 'center',
     textAlignVertical: 'center'
   }
