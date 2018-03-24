@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native';
-import { textColor, bgColor, font, color, blockStyle } from '../styles';
-import Icon from './Icon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
+import { textColor, bgColor, font, color, blockStyle } from '../../styles'
+import Icon from '../Icon';
 
 let { width: screenWidth } = Dimensions.get('window');
 

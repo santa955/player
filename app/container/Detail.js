@@ -4,11 +4,12 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, Easing } from 'react-native';
 import { TabNavigator } from 'react-navigation';
 import Video from 'react-native-video';
+import { play as Player } from 'react-native-vlc-player'
 import Carousel from 'react-native-looped-carousel';
 import Modal from 'react-native-modalbox';
 import Header from '../components/Header/DetailHeader';
 import Icon from '../components/Icon';
-import VideoBlock from '../components/VideoBlock';
+import { VideoBlock } from '../components/VideoBlock';
 import { mockVideoBlocks } from '../mock/home';
 import { blockStyle, commonStyles, font, textColor, bgColor, color } from '../styles';
 
@@ -29,11 +30,36 @@ class Detail extends Component {
     };
   }
   componentDidMount() {
+    this.player.presentFullscreenPlayer()
   }
   render() {
     return (
       <View style={commonStyles.root}>
-        <View style={styles.player}></View>
+        <View style={styles.player}>
+          <Video source={{ uri: "http://liuhanlin-work.qiniudn.com/mpeg4-zhuanma.mp4" }}
+            ref={(ref) => {
+              this.player = ref
+            }}                                     
+            rate={1.0}                             
+            volume={1.0}                           
+            muted={false}                          
+            paused={false}                         
+            resizeMode="cover"                     
+            repeat={true}                          
+            playInBackground={false}               
+            playWhenInactive={false}               
+            ignoreSilentSwitch={"ignore"}          
+            progressUpdateInterval={250.0}         
+            onLoadStart={this.loadStart}           
+            onLoad={this.setDuration}              
+            onProgress={this.setTime}              
+            onEnd={this.onEnd}                     
+            onError={this.videoError}              
+            onBuffer={this.onBuffer}               
+            onTimedMetadata={this.onTimedMetadata} 
+            style={styles.backgroundVideo} />
+
+        </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={[blockStyle.block, styles.videoInfo]}>
             <View style={blockStyle.blockHeader}>
@@ -238,7 +264,15 @@ const styles = StyleSheet.create({
   player: {
     height: 260,
     borderWidth: 1,
-    backgroundColor: '#000',
+    // backgroundColor: '#000',
+  },
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    // backgroundColor: '#000'
   },
   actions: {
     marginTop: -8,
@@ -262,8 +296,8 @@ const styles = StyleSheet.create({
   videoSeries: {
     marginLeft: -12,
     flexDirection: 'row',
-    // flexWrap: 'wrap',
-    // justifyContent: 'space-around'
+   
+   
   },
   series: {
     alignItems: 'center',

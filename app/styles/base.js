@@ -7,7 +7,7 @@ export const color = {
   blackSecondary: 'rgba(0, 0, 0, 0.54)',
   blackDisabled: 'rgba(0, 0, 0, 0.38)',
   colorDivid: '#efefef',
-  colorTip: '#b8b8b8',
+  colorTip: '#999',
   colorBg: '#f8f8f8',
   colorBgWeight: '#f4f4f4',
   blue: 'rgba(0, 114, 198, 0.7)',
@@ -45,6 +45,6 @@ export const font = {
 }
 
 export const layout = {
-  paddingHorizontal: 8,
-  paddingVertical: 16
+  paddingHorizontal: 12,
+  paddingVertical: 12
 }

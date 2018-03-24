@@ -1,24 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
-import FitImage from '../components/FitImage';
-import VideoDuration from '../components/VideoDuration';
-import { textColor, bgColor, font } from '../styles';
-let { width: screenWidth } = Dimensions.get('window');
-let layoutWidth = screenWidth - 16;
+import React from 'react'
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native'
+import FitImage from '../FitImage'
+import VideoDuration from './VideoDuration'
+import { color, font, layout } from '../../styles'
+let { width: screenWidth } = Dimensions.get('window')
+let layoutHGap = layout.paddingHorizontal
+let layoutWidth = screenWidth - 2 * layoutHGap
+let videoItemGap = 6
 
 export default class VideoItem extends React.Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount() {
 
-  }
   render() {
     let { video, navigate, type } = this.props;
     let videoType = video.type;
     let videoWidth = this.getWidth()
-    let width = videoType == 'full' ? layoutWidth : videoWidth;
-    let videoStyle = Object.assign({}, StyleSheet.flatten(styles.video), { width })
+    let width = videoType == 'full' ? layoutWidth : videoWidth
+    let marginRight = type === 2 ? videoItemGap : 0
+    let videoStyle = Object.assign({}, StyleSheet.flatten(styles.video), { width }, { marginRight })
+    
     return (
       <TouchableOpacity
         activeOpacity={1}
@@ -27,7 +29,7 @@ export default class VideoItem extends React.Component {
         <View style={[videoStyle]}>
           <View style={styles.videoImage}>
             <FitImage source={{ uri: video.cover }} style={styles.videoCover} />
-            {video.duration ? <VideoDuration duration={video.duration} /> : null}
+            {!!video.duration && <VideoDuration duration={video.duration} />}
           </View>
           <Text style={styles.videoName} numberOfLines={1}>{video.name}</Text>
           <Text style={styles.videoDesc} numberOfLines={1}>{video.desc}</Text>
@@ -38,31 +40,32 @@ export default class VideoItem extends React.Component {
 
   getWidth() {
     let { type } = this.props;
-    let videoWidth = layoutWidth / 2 - 4;
+    let videoWidth = (layoutWidth - videoItemGap) / 2;
     return type === 1
       ? videoWidth
       : type == 2
-        ? videoWidth - 12
-        : layoutWidth / 3 - 6;
+        ? (layoutWidth - videoItemGap * 2 ) / 2.1
+        : (layoutWidth - 2 * videoItemGap) / 3;
   }
 }
 
 const styles = StyleSheet.create({
   video: {
-    marginBottom: 16,
-    marginLeft: 8,
+    marginBottom: 12,
   },
 
   videoCover: {
-    backgroundColor: bgColor.gray,
+    backgroundColor: color.colorBg,
     borderRadius: 1,
     resizeMode: 'cover',
   },
+
   videoName: {
     paddingVertical: 2,
-    color: textColor.primary,
+    color: color.blackPrimary,
     fontSize: font.sm
   },
+
   videoDesc: {
     fontSize: font.xs
   }

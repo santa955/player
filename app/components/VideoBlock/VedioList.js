@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
-import VideoItem from './VideoItem';
+import React from 'react'
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity } from 'react-native'
+import VideoItem from './VideoItem'
 
 export default class VideoList extends React.Component {
   render() {
@@ -9,7 +9,6 @@ export default class VideoList extends React.Component {
       <View style={styles.videoList}>
         {this.renderItem(videoes, navigate, type)}
       </View>
-
     )
   }
 

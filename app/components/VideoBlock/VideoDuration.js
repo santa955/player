@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { textColor, bgColor, font } from '../styles'
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+import { textColor, bgColor, font } from '../../styles'
 export default class VideoDuration extends React.PureComponent {
   render() {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-import { View, StyleSheet } from 'react-native';
+import { TouchableOpacity, View, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -57,21 +57,27 @@ export default class Icon extends React.PureComponent {
     const {
       type,
       name,
+      style,
       size,
       color,
       iconStyle,
       onPress,
-      ...attributes
+      ...iconProps
     } = this.props;
 
+    let Component = onPress ? View : TouchableOpacity
+
     return (
-      <View style={[styles.iconContainer, this.props.style]}>
+      <Component
+        style={[styles.icon, style]}
+        onPress={onPress}
+        {...iconProps}>
         <this.Icon
-          style={[styles.icon, iconStyle && iconStyle]}
-          size={size && size}
+          style={[iconStyle]}
+          size={size || 20}
           name={name}
-          color={color && color} />
-      </View>
+          color={color} />
+      </Component>
     )
   }
 }
@@ -82,12 +88,8 @@ Icon.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  iconContainer: {
+  icon: {
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  icon: {
-    // fontSize: font.xs - 2
   }
 })

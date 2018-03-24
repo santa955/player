@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import Icon from '../components/Icon';
 import Swiper from '../components/Swiper';
-import VideoBlock from '../components/VideoBlock';
+import { VideoBlock, VideoLocationFilter } from '../components/VideoBlock';
 import FitImage from '../components/FitImage';
 import Header from '../components/Header/SearchHeader';
-import VideoLocationFilter from '../components/VideoLocationFilter';
 import { textColor, bgColor, font, commonStyles, color } from '../styles';
 import { mockSwipers, mockVideoBlocks, mockMenus } from '../mock/tv';
 

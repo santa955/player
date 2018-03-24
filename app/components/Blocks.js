@@ -8,11 +8,16 @@ let layoutWidth = screenWidth - 16;
 
 export default class VideoBlock extends React.Component {
   render() {
-    let { title, subTitle, icon } = this.props.blockInfo;
+    let {
+      title,
+      subTitle,
+      headerIcon,
+      ...attr
+    } = this.props;
     return (
       <View style={styles.block}>
         <View style={styles.blockHeader}>
-          {icon ? <Icon type="SimpleLineIcons" name={icon} iconStyle={styles.headerIcon} /> : null}
+          {headerIcon ? <Icon type="SimpleLineIcons" name={headerIcon} iconStyle={styles.headerIcon} /> : null}
           <View style={styles.headerTitle}>
             <Text style={styles.titleMain}>{title}</Text>
             <Text style={styles.titleSub}>{subTitle}</Text>
@@ -55,7 +60,7 @@ const styles = StyleSheet.create({
     color: color.green
   },
 
-  headerTitle:{
+  headerTitle: {
     flexDirection: 'row',
     alignItems: 'baseline'
   },
