@@ -11,7 +11,7 @@ export default class MenuItem extends React.PureComponent {
         activeOpacity={1}
         focusedOpacity={1}
         onPress={() => null}>
-        <View style={[blockStyle.block, styles.menuItem, styles.flexRow]}>
+        <View style={[blockStyle.blocks, styles.menuItem, styles.flexRow]}>
           <View style={[styles.menuMain, styles.flexRow]}>
             <Icon
               style={styles.mainIcon}
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   menuItem: {
-    paddingVertical: 16,
+    paddingVertical: 12,
     marginBottom: 0,
     justifyContent: 'space-between',
     borderBottomWidth: StyleSheet.hairlineWidth,

@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import LinearGradient from 'react-native-linear-gradient'
 import {
   StyleSheet,
   Text,
@@ -28,10 +29,15 @@ class Hot extends Component {
   render() {
     return (
       <View>
-        <Text>热播</Text>
-        <FitImage source={{ uri: 'http://puui.qpic.cn/tv/0/15697125_1080607/0' }}>
-          <Text>测试</Text>
-        </FitImage>
+        <LinearGradient
+          start={{ x: 0.0, y: 0.25 }} end={{ x: 0.5, y: 1.0 }}
+          locations={[0, 0.5, 0.6]}
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={styles.linearGradient}
+        >
+          <Text style={styles.buttonText}> Sign in with Facebook</Text>
+        </LinearGradient>
+        <Text>测试</Text>
       </View>
     )
   }
@@ -44,6 +50,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     backgroundColor: '#f5f5f5'
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5
+  },
+  buttonText: {
+    fontSize: 18,
+    // fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: 'red',
+    // backgroundColor: 'transparent',
   },
   wrapper: {},
   slide: {

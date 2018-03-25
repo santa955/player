@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: color.white,
+    marginBottom: layout.paddingVertical
   },
 
   headerMain: {
@@ -85,12 +86,12 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
 
-  moreLinkText:{
+  moreLinkText: {
     fontSize: font.sm,
     color: color.blackSecondary
   },
 
-  moreLink:{
+  moreLink: {
     marginLeft: 2,
     fontSize: font.xs - 2,
     color: color.blackSecondary

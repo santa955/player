@@ -26,5 +26,7 @@ export default class MenusList extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  menusListContainer: {}
+  menusListContainer: {
+    flex: 1
+  }
 })
