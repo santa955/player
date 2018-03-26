@@ -53,7 +53,7 @@ class User extends React.Component {
               </BlockBody>
             </Block>
           </LinearGradient>
-          <Block style={styles.userBlocks}>
+          <Block style={styles.userBlock}>
             <BlockBody>
               <View style={styles.userAccount}>
                 <View style={styles.accountTitle}>
@@ -85,7 +85,7 @@ class User extends React.Component {
               </View>
             </BlockBody>
           </Block>
-          <Block style={styles.userBlocks} verticalGap={true}>
+          <Block style={[styles.userBlock, styles.noVerticalPadding]} verticalGap={true}>
             <BlockBody style={{ flex: 1 }}>
               <MenusList menus={userMenus} />
             </BlockBody>
@@ -101,6 +101,9 @@ export default User
 const styles = StyleSheet.create({
   userBlock: {
     paddingHorizontal: 16,
+  },
+  noVerticalPadding: {
+    paddingVertical: 0
   },
   header: {
     backgroundColor: 'transparent'
@@ -176,7 +179,7 @@ const styles = StyleSheet.create({
   menuIcon: {
     fontSize: font.lg,
     color: color.green,
-    marginRight: 8
+    marginRight: 12
   },
 
   accountMenus: {

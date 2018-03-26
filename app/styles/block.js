@@ -3,7 +3,7 @@ export const blockStyle = {
   block: {
     paddingHorizontal: 8,
     paddingVertical: 8,
-    marginBottom: 8,
+    // marginBottom: 8,
     backgroundColor: base.bgColor.white,
   },
   headerMain: {

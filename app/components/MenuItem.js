@@ -18,7 +18,7 @@ export default class MenuItem extends React.PureComponent {
               iconStyle={{ color: color || textColor.secondary }}
               type={iconType || 'SimpleLineIcons'}
               name={icon}
-              size={size || 20} />
+              size={size || 22} />
             <Text style={[styles.mainText]}>{name}</Text>
           </View>
           <View style={[styles.menuSub, styles.flexRow]}>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mainText: {
-    color: textColor.secondary,
+    color: textColor.primary,
     fontSize: font.nr
   },
   subText: {
