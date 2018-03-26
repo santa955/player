@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, Easing } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, Easing, StatusBar } from 'react-native';
 import { TabNavigator } from 'react-navigation';
-import Video from 'react-native-video';
-import { play as Player } from 'react-native-vlc-player'
+import { Video } from '../components/Player'
 import Carousel from 'react-native-looped-carousel';
 import Modal from 'react-native-modalbox';
 import Header from '../components/Header/DetailHeader';
@@ -29,36 +28,20 @@ class Detail extends Component {
       swipeToClose: true
     };
   }
-  componentDidMount() {
-    this.player.presentFullscreenPlayer()
-  }
   render() {
     return (
       <View style={commonStyles.root}>
+        <StatusBar
+          backgroundColor="rgba(0, 0, 0, 0)"
+          barStyle="light-content"
+          translucent />
         <View style={styles.player}>
-          <Video source={{ uri: "http://liuhanlin-work.qiniudn.com/mpeg4-zhuanma.mp4" }}
-            ref={(ref) => {
-              this.player = ref
-            }}                                     
-            rate={1.0}                             
-            volume={1.0}                           
-            muted={false}                          
-            paused={false}                         
-            resizeMode="cover"                     
-            repeat={true}                          
-            playInBackground={false}               
-            playWhenInactive={false}               
-            ignoreSilentSwitch={"ignore"}          
-            progressUpdateInterval={250.0}         
-            onLoadStart={this.loadStart}           
-            onLoad={this.setDuration}              
-            onProgress={this.setTime}              
-            onEnd={this.onEnd}                     
-            onError={this.videoError}              
-            onBuffer={this.onBuffer}               
-            onTimedMetadata={this.onTimedMetadata} 
-            style={styles.backgroundVideo} />
-
+          <Video
+            title="视频测试哦~~~"
+            placeholder="https://ls.motieimg.com/SHELF/140/564/a9aa3887f2bc7899d5eb22a761ba6c96_508101"
+            url="https://tbm.alicdn.com/jAIYIHW4PF2qFdskNZi/SFuuVjoHwfjBueuM089%40%40sd.mp4"
+            rotateToFullScreen={true}
+            fullScreenOnly={true} />
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={[blockStyle.block, styles.videoInfo]}>
@@ -239,7 +222,7 @@ class Detail extends Component {
           onClosed={() => { this.onModalClose() }}>
           <Text style={styles.text}>Modal on bottom with backdrop</Text>
         </Modal>
-      </View>
+      </View >
     )
   }
 
@@ -262,8 +245,7 @@ const styles = StyleSheet.create({
   },
 
   player: {
-    height: 260,
-    borderWidth: 1,
+    // height: 260,
     // backgroundColor: '#000',
   },
   backgroundVideo: {
@@ -296,8 +278,8 @@ const styles = StyleSheet.create({
   videoSeries: {
     marginLeft: -12,
     flexDirection: 'row',
-   
-   
+
+
   },
   series: {
     alignItems: 'center',
