@@ -1,8 +1,9 @@
-import React from 'react';
-import { StackNavigator } from 'react-navigation';
-import AppTabNavigator from './AppTabNavigator';
-import Detail from '../container/Detail';
-import CustomerAnimate from '../animations';
+import React from 'react'
+import { StackNavigator } from 'react-navigation'
+import AppTabNavigator from './AppTabNavigator'
+import Detail from '../container/Detail'
+import Login from '../container/Login'
+import CustomerAnimate from '../animations'
 
 const AppStackNavigator = StackNavigator({
   Tabs: {
@@ -29,9 +30,15 @@ const AppStackNavigator = StackNavigator({
       },
       headerTintColor: 'white'
     }
+  },
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      header: null
+    }
   }
 }, {
-    initialRouteName: 'Detail',
+    initialRouteName: 'Login',
     transitionConfig: () => {
       return {
         screenInterpolator: (sceneProps) => {

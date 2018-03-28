@@ -94,8 +94,8 @@ class VideoPlayer extends Component {
   onEnd() {
     const { loop } = this.props
     if (!loop) this.pause()
-    this.onSeekRelease(0)
     this.setState({ currentTime: 0 }, () => {
+      this.onSeekRelease(0)
       if (!loop) this.controls.showControls()
     })
   }
@@ -357,7 +357,7 @@ VideoPlayer.defaultProps = {
   logo: undefined,
   resizeMode: 'contain',
   onMorePress: undefined,
-  onFullScreen: () => {},
+  onFullScreen: () => { },
   onTimedMetadata: undefined,
   theme: 'white',
   placeholder: undefined,

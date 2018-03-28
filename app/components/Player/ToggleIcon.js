@@ -25,7 +25,7 @@ const ToggleIcon = (props) => {
   } = props
 
   const padding = {
-    paddingLeft: paddingLeft ? 10 : 0,
+    paddingLeft: paddingLeft ? 5 : 0,
     paddingRight: paddingRight ? 5 : 0
   }
 

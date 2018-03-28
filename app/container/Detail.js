@@ -37,8 +37,8 @@ class Detail extends Component {
           translucent />
         <View style={styles.player}>
           <Video
-            title="视频测试哦~~~"
-            placeholder="https://ls.motieimg.com/SHELF/140/564/a9aa3887f2bc7899d5eb22a761ba6c96_508101"
+            title="阿里云视频服务"
+            placeholder="http://img.zhiding.cn/4/977/lic1FRZrMJn56.png"
             url="https://tbm.alicdn.com/jAIYIHW4PF2qFdskNZi/SFuuVjoHwfjBueuM089%40%40sd.mp4"
             rotateToFullScreen={true}
             fullScreenOnly={true} />

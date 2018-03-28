@@ -23,11 +23,20 @@ const ControlBar = (props) => {
     muted,
     fullscreen,
     theme,
+    paused,
     inlineOnly
   } = props
 
   return (
     <LinearGradient colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0.75)']} style={styles.container}>
+      <ToggleIcon
+        paddingLeft
+        onPress={() => props.togglePlay()}
+        iconOff="play-arrow"
+        iconOn="pause"
+        isOn={!paused}
+        theme={theme}
+      />
       <Time time={currentTime} theme={theme} />
       <Scrubber
         onSeek={pos => onSeek(pos)}
@@ -45,15 +54,15 @@ const ControlBar = (props) => {
         size={20}
       />
       <Time time={duration} theme={theme} />
-      { !inlineOnly &&
-      <ToggleIcon
-        paddingRight
-        onPress={() => props.toggleFS()}
-        iconOff="fullscreen"
-        iconOn="fullscreen-exit"
-        isOn={fullscreen}
-        theme={theme}
-      />}
+      {!inlineOnly &&
+        <ToggleIcon
+          paddingRight
+          onPress={() => props.toggleFS()}
+          iconOff="fullscreen"
+          iconOn="fullscreen-exit"
+          isOn={fullscreen}
+          theme={theme}
+        />}
     </LinearGradient>
   )
 }
