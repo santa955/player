@@ -26,7 +26,7 @@ class User extends React.Component {
             start={{ x: 0.0, y: 0 }}
             end={{ x: 1, y: 1.0 }}
             locations={[0, 1]}
-            colors={['#43e97b', '#38f9d7']}>
+            colors={['#42a855', '#51d15b']}>
             <Block style={[styles.userBlock, styles.header]}>
               <BlockBody>
                 <View style={[styles.headerUser]}>
