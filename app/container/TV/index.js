@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
-import Icon from '../components/Icon';
-import Swiper from '../components/Swiper';
-import { VideoBlock, VideoLocationFilter } from '../components/VideoBlock';
-import FitImage from '../components/FitImage';
-import Header from '../components/Header/SearchHeader';
-import { textColor, bgColor, font, commonStyles, color } from '../styles';
-import { mockSwipers, mockVideoBlocks, mockMenus } from '../mock/tv';
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
+import Swiper from '../../components/Swiper'
+import { VideoBlock, VideoLocationFilter } from '../../components/VideoBlock'
+import Header from '../../components/Header/SearchHeader'
+import { textColor, bgColor, font, commonStyles, color } from '../../styles'
+import { mockSwipers, mockVideoBlocks, mockMenus } from '../../mock/tv'
 
 export default class Home extends Component {
   constructor() {
@@ -17,14 +15,14 @@ export default class Home extends Component {
   componentDidMount() {
   }
   render() {
-    let { navigate } = this.props.navigation;
+    let { navigate } = this.props.navigation
     return (
       <View>
         <StatusBar
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
           translucent />
-        <Header placeholder="特勤精英" downloaded={true} />
+        <Header placeholder="特勤精英" />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={commonStyles.root}>
             <Swiper swipers={mockSwipers}></Swiper>

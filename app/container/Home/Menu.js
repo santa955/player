@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
-import { TabNavigator, StackNavigator } from 'react-navigation';
-import { textColor, font, color, blockStyle } from '../../styles';
-import Icon from '../Icon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native'
+import { Block, BlockBody } from '../../components/Block'
+import { color, font } from '../../styles'
+import Icon from '../../components/Icon'
 
 export default class HomeMenu extends React.PureComponent {
   constructor(props) {
@@ -11,21 +11,23 @@ export default class HomeMenu extends React.PureComponent {
   }
   render() {
     return (
-      <View style={[blockStyle.block]}>
-        <View style={[blockStyle.blockContent, styles.MenuContainer]}>
-          {this.renderMenus(this.props.menus || [])}
+      <Block verticalGap={false}>
+        <View style={[styles.MenuContainer]}>
+          {this.renderMenus()}
         </View>
-      </View>
+      </Block>
+
     )
   }
-  renderMenus(menus) {
+  renderMenus() {
+    let { menus = [], navigate } = this.props
     return menus.map((menu, index) => {
       return (
         <TouchableOpacity
           key={index}
           activeOpacity={1}
           focusedOpacity={1}
-          onPress={null}>
+          onPress={() => navigate(menu.channel, { uid: menu.uid })}>
           <View style={styles.menu}>
             <Image style={styles.menuIcon} source={{ uri: menu.iconUrl }} />
             <Text style={styles.menuText}>{menu.name}</Text>
@@ -38,24 +40,22 @@ export default class HomeMenu extends React.PureComponent {
 
 HomeMenu.propTypes = {
   menus: PropTypes.array.isRequired
-};
+}
 
 const styles = StyleSheet.create({
   MenuContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 0,
-    paddingVertical: 8
   },
   menu: {
-    alignItems: 'center',
+    alignItems: 'center'
   },
   menuIcon: {
     width: 36,
     height: 36,
     borderRadius: 36,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
   },
   menuIconStyle: {
     // width: 36,
@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
     marginTop: 4,
     textAlign: 'center',
     fontSize: font.xs,
-    color: textColor.secondary,
+    color: color.secondary,
   }
 })

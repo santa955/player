@@ -3,6 +3,7 @@ import { StackNavigator } from 'react-navigation'
 import AppTabNavigator from './AppTabNavigator'
 import Detail from '../container/Detail'
 import Login from '../container/Login'
+import Category from '../container/Category'
 import CustomerAnimate from '../animations'
 
 const AppStackNavigator = StackNavigator({
@@ -31,6 +32,12 @@ const AppStackNavigator = StackNavigator({
       headerTintColor: 'white'
     }
   },
+  Category: {
+    screen: Category,
+    navigationOptions: {
+      header: null
+    }
+  },
   Login: {
     screen: Login,
     navigationOptions: {
@@ -38,7 +45,7 @@ const AppStackNavigator = StackNavigator({
     }
   }
 }, {
-    initialRouteName: 'Login',
+    initialRouteName: 'Category',
     transitionConfig: () => {
       return {
         screenInterpolator: (sceneProps) => {

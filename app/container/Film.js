@@ -4,7 +4,7 @@ import VideoPlayer from 'react-native-video-player';
 import Player from 'react-native-video-controls'
 const VIMEO_ID = '179859217';
 
-export default class Video extends Component {
+export default class Film extends Component {
   constructor() {
     super()
     this.state = {
@@ -39,11 +39,11 @@ export default class Video extends Component {
           duration={this.state.video.duration
           ref={r => this.player = r}
         />*/}
-        <Player
+        {/* <Player
           style={styles.background}
           ref={r => this.player = r}
           source={{ uri: 'https://tbm.alicdn.com/jAIYIHW4PF2qFdskNZi/SFuuVjoHwfjBueuM089%40%40sd.mp4' }}
-        />
+        /> */}
         <Button
           onPress={() => this.player.stop()}
           title="Stop"

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Icon from '../Icon'
 import { font, color, layout } from '../../styles'
 
@@ -15,6 +15,9 @@ export default class BlockHeader extends React.PureComponent {
       subTitle,
       headerIcon,
       headerIconStyle,
+      moreLink,
+      linkText,
+      onPress = null,
       ...attr
     } = this.props;
 
@@ -32,14 +35,21 @@ export default class BlockHeader extends React.PureComponent {
             <Text style={styles.titleSub}>{subTitle}</Text>
           </View>
         </View>
-        <View style={styles.headerMore}>
-          <Text style={styles.moreLinkText}>更多</Text>
-          <Icon
-            type="SimpleLineIcons"
-            name="arrow-right"
-            iconStyle={[styles.moreLink]}
-          />
-        </View>
+        {
+          moreLink &&
+          <TouchableOpacity
+            style={styles.headerMore}
+            activeOpacity={1}
+            focusedOpacity={1}
+            onPress={onPress}>
+            <Text style={styles.moreLinkText}>{linkText || '更多'}</Text>
+            <Icon
+              type="SimpleLineIcons"
+              name="arrow-right"
+              iconStyle={[styles.moreLink]}
+            />
+          </TouchableOpacity>
+        }
       </View>
     )
   }

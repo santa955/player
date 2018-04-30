@@ -1,16 +1,28 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native'
+import { Platform, StyleSheet, Text, View, TextInput, TouchableOpacity, Keyboard, KeyboardAvoidingView } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Input from './Input'
 import { color, font } from '../../styles'
 export default class Form extends Component {
   constructor(props) {
-    super(props);
-    this.state = { text: '' };
+    super(props)
+    this.state = { text: '' }
   }
+
+  componentWillMount() {
+    if (Platform.OS == 'ios') {
+      this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow)
+      this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide)
+    } else {
+      this.keyboardWillShowSub = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow)
+      this.keyboardWillHideSub = Keyboard.addListener('keyboardDidHide', this.keyboardDidHide)
+    }
+
+  }
+
   render() {
     return (
-      <View style={styles.form}>
+      <KeyboardAvoidingView style={styles.form}>
         <View style={styles.intro}>
           <Text style={[styles.introText, styles.introMain]}>注册账户</Text>
           <Text style={[styles.introText, styles.introTip]}>离观看更多精彩视频更近一步~</Text>
@@ -41,15 +53,57 @@ export default class Form extends Component {
             </LinearGradient>
           </TouchableOpacity>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     )
+  }
+
+  componentWillUnmount() {
+    this.keyboardWillShowSub.remove()
+    this.keyboardWillHideSub.remove()
+  }
+
+  keyboardWillShow = (event) => {
+    console.log(event)
+
+    // Animated.timing(this.imageHeight, {
+    //   duration: event.duration,
+    //   toValue: IMAGE_HEIGHT_SMALL,
+    // }).start()
+  }
+
+  keyboardWillHide = (event) => {
+    console.log(event)
+
+    // Animated.timing(this.imageHeight, {
+    //   duration: event.duration,
+    //   toValue: IMAGE_HEIGHT,
+    // }).start()
+  }
+
+
+  keyboardDidShow = (event) => {
+    console.log(event)
+    // Animated.timing(this.imageHeight, {
+    //   toValue: IMAGE_HEIGHT_SMALL,
+    // }).start()
+  }
+
+  keyboardDidHide = (event) => {
+    console.log(event)
+
+    // Animated.timing(this.imageHeight, {
+    //   toValue: IMAGE_HEIGHT,
+    // }).start()
   }
 }
 
 const styles = StyleSheet.create({
   form: {
-    marginTop: 128,
-    paddingHorizontal: 36
+    // flex: 1,
+    paddingTop: 128,
+    paddingHorizontal: 36,
+    backgroundColor: '#4c69a5'
+    // justifyContent: 'center'
   },
 
   introText: {

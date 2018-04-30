@@ -6,7 +6,7 @@ export const color = {
   blackPrimary: 'rgba(0, 0, 0, 0.87)',
   blackSecondary: 'rgba(0, 0, 0, 0.54)',
   blackDisabled: 'rgba(0, 0, 0, 0.38)',
-  colorDivid: '#efefef',
+  colorDivid: '#e1e1e1',
   colorTip: '#999',
   colorBg: '#f8f8f8',
   colorBgWeight: '#f4f4f4',

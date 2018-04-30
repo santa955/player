@@ -1,22 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
-import { textColor, bgColor, font, color, blockStyle } from '../../styles'
-import Icon from '../Icon';
+import { Block, BlockBody } from '../../components/Block'
+import { textColor, bgColor, font, color, layout } from '../../styles'
+import Icon from '../Icon'
 
-let { width: screenWidth } = Dimensions.get('window');
-
+let { width: screenWidth } = Dimensions.get('window')
+const GAPHORIZONTAL = layout.paddingHorizontal
+const GAPITEM = 8
 export default class VideoLocationFilter extends React.PureComponent {
   constructor(props) {
     super(props)
   }
   render() {
     return (
-      <View style={[blockStyle.block]}>
+      <Block verticalGap={false}>
         <View style={styles.filterContainer}>
           {this.renderFilter(this.props.filters)}
         </View>
-      </View>
+      </Block>
     )
   }
 
@@ -45,15 +47,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexWrap: 'wrap',
-    marginTop: 0,
-    paddingTop: -2,
-    paddingBottom: 4,
+    marginTop: -6,
   },
   filterItem: {
     marginTop: 6,
-    paddingVertical: 6,
+    paddingVertical: 8,
     borderWidth: StyleSheet.hairlineWidth,
-    width: (screenWidth - 64) / 4,
+    width: (screenWidth - GAPHORIZONTAL * 2 - 3 * GAPITEM) / 4,
     alignItems: 'center',
     borderColor: color.colorDivid,
     borderRadius: 2

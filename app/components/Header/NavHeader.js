@@ -8,7 +8,7 @@ const version = Platform.Version
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBarManager.HEIGHT
 let SEARCHBAR_TOP = version >= 21 ? STATUSBAR_HEIGHT : 0
 
-export default class SearchHeader extends React.PureComponent {
+export default class NavhHeader extends React.PureComponent {
   constructor(props) {
     super(props)
   }
@@ -25,10 +25,6 @@ export default class SearchHeader extends React.PureComponent {
             <Icon iconStyle={styles.inputIcon} name="search" type="Feather" size={14} />
             <Text style={styles.placeholder}>{this.props.placeholder}</Text>
           </View>
-          {/* <View style={styles.icons}>
-            <Icon type="Feather" name="download" size={20} iconStyle={styles.icon} />
-            <Icon type="Feather" name="clock" size={20} iconStyle={styles.icon} />
-          </View> */}
         </View>
       </TouchableOpacity>
     )

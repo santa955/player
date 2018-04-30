@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { TabNavigator, TabBarBottom } from 'react-navigation';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import Home from '../container/Home';
-import Hot from '../container/Hot';
-import Video from '../container/Video';
-import TV from '../container/TV';
-import User from '../container/User';
-import CustomerAnimate from '../animations';
+import React, { Component } from 'react'
+import { TabNavigator, TabBarBottom } from 'react-navigation'
+import Icon from '../components/Icon'
+import Home from '../container/Home'
+import Hot from '../container/Hot'
+import Film from '../container/Film'
+import TV from '../container/TV'
+import User from '../container/User'
+import Channel from '../container/Channel'
+import CustomerAnimate from '../animations'
 import { textColor, bgColor, font, color } from '../styles'
 
 const AppTabNavigator = TabNavigator({
@@ -17,13 +18,27 @@ const AppTabNavigator = TabNavigator({
       tabBarIcon: ({ tintColor }) => (<Icon name="home" size={20} color={tintColor} />)
     })
   },
-  Hot: {
-    screen: Hot,
+  Channel: {
+    screen: Channel,
     navigationOptions: ({ navigation }) => ({
-      tabBarLabel: '热播',
-      tabBarIcon: ({ tintColor }) => (<Icon name="fire" size={22} color={tintColor} />)
+      tabBarLabel: '频道',
+      tabBarIcon: ({ tintColor }) => (<Icon name="grid" size={18} color={tintColor} />)
     })
   },
+  // Hot: {
+  //   screen: Hot,
+  //   navigationOptions: ({ navigation }) => ({
+  //     tabBarLabel: '热播',
+  //     tabBarIcon: ({ tintColor }) => (<Icon name="fire" size={22} color={tintColor} />)
+  //   })
+  // },
+  // Fun: {
+  //   screen: TV,
+  //   navigationOptions: ({ navigation }) => ({
+  //     tabBarLabel: '搞笑',
+  //     tabBarIcon: ({ tintColor }) => (<Icon type="MaterialCommunityIcons" name="incognito" size={26} color={tintColor} />)
+  //   })
+  // },
   TV: {
     screen: TV,
     navigationOptions: ({ navigation }) => ({
@@ -31,8 +46,8 @@ const AppTabNavigator = TabNavigator({
       tabBarIcon: ({ tintColor }) => (<Icon name="screen-desktop" size={20} color={tintColor} />)
     })
   },
-  Video: {
-    screen: Video,
+  Film: {
+    screen: Film,
     navigationOptions: ({ navigation }) => ({
       tabBarLabel: '电影',
       tabBarIcon: ({ tintColor }) => (<Icon name="camrecorder" size={22} color={tintColor} />)
@@ -71,7 +86,7 @@ const AppTabNavigator = TabNavigator({
         borderTopColor: color.colorDivid
       }
     }
-  });
+  })
 
 
 export default AppTabNavigator
