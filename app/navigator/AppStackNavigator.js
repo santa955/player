@@ -4,6 +4,7 @@ import AppTabNavigator from './AppTabNavigator'
 import Detail from '../container/Detail'
 import Login from '../container/Login'
 import Category from '../container/Category'
+import Search from '../container/Search'
 import CustomerAnimate from '../animations'
 
 const AppStackNavigator = StackNavigator({
@@ -38,6 +39,12 @@ const AppStackNavigator = StackNavigator({
       header: null
     }
   },
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      header: null
+    }
+  },
   Login: {
     screen: Login,
     navigationOptions: {
@@ -45,7 +52,7 @@ const AppStackNavigator = StackNavigator({
     }
   }
 }, {
-    initialRouteName: 'Category',
+    initialRouteName: 'Tabs',
     transitionConfig: () => {
       return {
         screenInterpolator: (sceneProps) => {

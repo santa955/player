@@ -16,9 +16,9 @@ export default class HomeMenu extends React.PureComponent {
           {this.renderMenus()}
         </View>
       </Block>
-
     )
   }
+
   renderMenus() {
     let { menus = [], navigate } = this.props
     return menus.map((menu, index) => {
@@ -27,7 +27,7 @@ export default class HomeMenu extends React.PureComponent {
           key={index}
           activeOpacity={1}
           focusedOpacity={1}
-          onPress={() => navigate(menu.channel, { uid: menu.uid })}>
+          onPress={() => navigate(menu.channel, { uid: menu.uid, title: menu.name })}>
           <View style={styles.menu}>
             <Image style={styles.menuIcon} source={{ uri: menu.iconUrl }} />
             <Text style={styles.menuText}>{menu.name}</Text>

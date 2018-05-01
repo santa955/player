@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import { HEADERTYPE } from '../consts'
 import { Block, BlockBody } from '../components/Block'
 import { font, commonStyles, color, blockStyle } from '../styles'
 import Icon from '../components/Icon';

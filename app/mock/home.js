@@ -221,19 +221,19 @@ export const mockMenus = [
   },
   {
     uid: '1003',
-    channel: 'Channel',
+    channel: 'Category',
     name: '综艺',
     iconUrl: 'http://puui.qpic.cn/tv/0/15910746_453254/0'
   },
   {
     uid: '1004',
-    channel: 'Channel',
+    channel: 'Category',
     name: '美剧',
     iconUrl: 'http://g3.ykimg.com/05420101597085CD8B79DC986A349B35'
   },
   {
     uid: '1005',
-    channel: 'Channel',
+    channel: 'Category',
     name: '动漫',
     iconUrl: 'http://puui.qpic.cn/tv/0/11130503_300168/0'
   },

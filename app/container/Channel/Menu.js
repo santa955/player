@@ -24,29 +24,30 @@ export default class HomeMenu extends React.PureComponent {
   }
 
   renderRow() {
-    let rows = this.props.menus
+    let { menus: rows = [], navigate } = this.props
     return rows.map((row, index) => {
       return (
         <View
           key={index}
           style={styles.row}>
-          {this.renderMenus(row)}
+          {this.renderMenus(row, navigate)}
         </View>
       )
     })
   }
 
-  renderMenus(menus) {
+  renderMenus(menus, navigate) {
     return menus.map((menu, index) => {
+      let { uid, name: title, channel } = menu
       return (
         <TouchableOpacity
-          key={menu.uid}
+          key={uid}
           activeOpacity={1}
           focusedOpacity={1}
-          onPress={null}>
+          onPress={() => { navigate(channel, { uid, title }) }}>
           <View style={styles.menu}>
             <Icon name={menu.icon} type={menu.type} size={32} iconStyle={styles.menuIcon}></Icon>
-            <Text style={styles.menuText} numberOfLines={1}>{menu.name}</Text>
+            <Text style={styles.menuText} numberOfLines={1}>{title}</Text>
           </View>
         </TouchableOpacity>
       )

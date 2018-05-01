@@ -8,18 +8,18 @@ const version = Platform.Version
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBarManager.HEIGHT
 let SEARCHBAR_TOP = version >= 21 ? STATUSBAR_HEIGHT : 0
 
-export default class NavhHeader extends React.PureComponent {
+export default class SearchEntryHeader extends React.PureComponent {
   constructor(props) {
     super(props)
   }
   render() {
-    let { style, ...other } = this.props
+    let { style, navigate, ...other } = this.props
     return (
       <TouchableOpacity
         style={[styles.searchHeader, style]}
         activeOpacity={1}
         focusedOpacity={1}
-        onPress={null}>
+        onPress={() => { navigate('Search') }}>
         <View style={styles.header}>
           <View style={styles.input}>
             <Icon iconStyle={styles.inputIcon} name="search" type="Feather" size={14} />

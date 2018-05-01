@@ -1,0 +1,5 @@
+export const HEADERTYPE = {
+  SEARCHENTRY: 1,
+  TITLENAV: 2,
+  SEARCH: 3,
+}

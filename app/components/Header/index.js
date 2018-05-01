@@ -1,4 +1,9 @@
+import SearchEntryHeader from './SearchEntryHeader'
 import SearchHeader from './SearchHeader'
-import NavHeader from './NavHeader'
+import TitleNavHeader from './TitleNavHeader'
 
-export { SearchHeader as default, NavHeader }
+export {
+  SearchEntryHeader as default,
+  SearchHeader,
+  TitleNavHeader
+}

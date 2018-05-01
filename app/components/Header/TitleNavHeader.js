@@ -9,12 +9,15 @@ const version = Platform.Version
 const STATUSBAR_HEIGHT = Platform.OS === 'ios' ? 20 : StatusBarManager.HEIGHT
 let SEARCHBAR_TOP = version >= 21 ? STATUSBAR_HEIGHT : 0
 
-export default class NavSearchHeader extends React.Component {
+export default class TitleNavHeader extends React.PureComponent {
   constructor(props) {
     super(props)
   }
   render() {
     let { style, navigation, ...other } = this.props
+    let { params = {} } = navigation.state
+    let { uid = 1000, title = '' } = params
+
     return (
       <View style={styles.navHeader}>
         <View style={styles.nav}>
@@ -25,9 +28,18 @@ export default class NavSearchHeader extends React.Component {
               onPress={() => navigation.goBack(null)}>
               <Icon name="arrow-left" iconStyle={styles.backIcon} />
             </TouchableOpacity>
-            <View style={styles.headerInput}>
-              <Input style={styles.input} searchIcon ={true}/>
+            <View style={styles.title}>
+              <Text style={styles.titleText}>{title}</Text>
             </View>
+          </View>
+          <View style={styles.search}>
+            <TouchableOpacity
+              style={styles.searchWrapper}
+              activeOpacity={1}
+              focusedOpacity={1}
+              onPress={null}>
+              <Icon iconStyle={styles.searchIcon} name="search" type="Feather" />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -41,7 +53,7 @@ const styles = StyleSheet.create({
   navHeader: {
     position: 'relative',
     paddingTop: SEARCHBAR_TOP,
-    backgroundColor: '#eee'
+    backgroundColor: color.green
   },
 
   nav: {
@@ -60,43 +72,37 @@ const styles = StyleSheet.create({
   },
 
   backIcon: {
-    color: color.blackDisabled,
-    fontSize: font.nr,
+    color: color.white,
+    fontSize: font.nr
+  },
+
+  title: {
+    paddingLeft: GAPMAIN,
+  },
+
+  titleText: {
+    color: color.white,
+    fontSize: font.md
   },
 
   headerInput: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
     marginHorizontal: GAPMAIN,
     borderWidth: 1,
-    borderColor: color.colorDivid,
-    backgroundColor: color.white,
-    borderRadius: 2
-  },
-
-  inputIcon: {
-    marginLeft: 8,
-    marginRight: 4
-    // borderWidth: 1
-  },
-
-  input: {
-    fontSize: font.sm
+    flex: 1
   },
 
   searchWrapper: {
-    // width: 24,
-    // height: 24,
+    width: 24,
+    height: 24,
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    // borderRadius: 12,
-    borderColor: color.blackDisabled
+    borderRadius: 12,
+    borderColor: color.white
   },
 
   searchIcon: {
-    color: color.blackDisabled,
+    color: color.white,
     fontSize: font.sm
   }
 
