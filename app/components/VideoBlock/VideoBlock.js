@@ -7,7 +7,7 @@ import { font, commonStyles, color } from '../../styles'
 
 export default class VideoBlock extends React.Component {
   render() {
-    let { title, subTitle, icon, moreLink } = this.props.blockInfo
+    let { title, subTitle, icon, moreLink = false } = this.props.blockInfo
     return (
       <Block verticalGap={true} style={{ paddingBottom: 0 }}>
         {
@@ -16,7 +16,7 @@ export default class VideoBlock extends React.Component {
             title={title}
             subTitle={subTitle}
             headerIcon={icon}
-            moreLink={moreLink ? true : false} />
+            moreLink={moreLink} />
         }
         <BlockBody>{this.renderContent()}</BlockBody>
       </Block>

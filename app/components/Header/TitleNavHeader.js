@@ -37,7 +37,7 @@ export default class TitleNavHeader extends React.PureComponent {
               style={styles.searchWrapper}
               activeOpacity={1}
               focusedOpacity={1}
-              onPress={null}>
+              onPress={() => navigation.navigate('Search')}>
               <Icon iconStyle={styles.searchIcon} name="search" type="Feather" />
             </TouchableOpacity>
           </View>
