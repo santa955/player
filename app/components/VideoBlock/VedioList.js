@@ -4,7 +4,7 @@ import VideoItem from './VideoItem'
 
 export default class VideoList extends React.Component {
   render() {
-    let { videoes, navigate, type } = this.props;
+    let { videoes = [], navigate, type } = this.props;
     return (
       <View style={styles.videoList}>
         {this.renderItem(videoes, navigate, type)}
