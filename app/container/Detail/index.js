@@ -98,8 +98,8 @@ class Detail extends Component {
               </View>
             </View>
           </View> */}
-          <VideoBlock type="3" blockInfo={mockVideoBlocks[3]} />
-          <VideoBlock type="1" blockInfo={mockVideoBlocks[1]} />
+          <VideoBlock type={3} blockInfo={mockVideoBlocks[3]} />
+          <VideoBlock type={1} blockInfo={mockVideoBlocks[1]} />
 
         </ScrollView>
       </View >

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import VideoPlayer from 'react-native-video-player';
 import Player from 'react-native-video-controls'
+import UImage from '../components/UImage'
 const VIMEO_ID = '179859217';
 
 export default class Film extends Component {
@@ -44,7 +45,7 @@ export default class Film extends Component {
           ref={r => this.player = r}
           source={{ uri: 'https://tbm.alicdn.com/jAIYIHW4PF2qFdskNZi/SFuuVjoHwfjBueuM089%40%40sd.mp4' }}
         /> */}
-        <Button
+        {/* <Button
           onPress={() => this.player.stop()}
           title="Stop"
         />
@@ -55,7 +56,8 @@ export default class Film extends Component {
         <Button
           onPress={() => this.player.resume()}
           title="Resume"
-        />
+        /> */}
+        <UImage uri="https://i.gtimg.cn/qqlive/img/jpgcache/files/qqvideo/8/8itzxvis4st3389_y.jpg"></UImage>
       </View>
     );
   }
