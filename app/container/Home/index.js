@@ -6,6 +6,7 @@ import Container from '../Container'
 import { HEADERTYPE, STATUSBAR } from '../../consts'
 import Swiper from '../../components/Swiper'
 import { VideoBlock } from '../../components/VideoBlock'
+import Footer from '../../components/Footer'
 import HomeMenu from './Menu'
 import { mockSwipers, mockVideoBlocks, mockMenus } from '../../mock/home'
 
@@ -37,6 +38,8 @@ export class Home extends Component {
           showsVerticalScrollIndicator={false}
           renderItem={this.renderBlock.bind(this)}
           keyExtractor={(item, index) => item + index}
+          ListFooterComponent={Footer}
+          removeClippedSubviews={true}
           sections={[
             { type: -1, data: [mockSwipers], renderItem: this.renderSwiper.bind(this) },
             { type: -1, data: [mockMenus], renderItem: this.renderMenu.bind(this) },
