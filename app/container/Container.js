@@ -1,11 +1,15 @@
 import React from 'react'
 import { StyleSheet, View, StatusBar } from 'react-native'
+import Orientation from 'react-native-orientation'
 import { HEADERTYPE } from '../consts'
 import SearchEntryHeader, { SearchHeader, TitleNavHeader } from '../components/Header'
 
 export default (props) =>
   (WrappedComponent) =>
     class HOC extends React.Component {
+      componentWillMount() {
+        Orientation.lockToPortrait()
+      }
       render() {
         return (
           <View style={{ flex: 1 }}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, Image, Dimensions, ScrollView, TouchableOpacity, Easing, StatusBar } from 'react-native'
-import { Video } from '../../components/Player'
+import Player from '../../components/KPlayer'
 import Header from '../../components/Header/DetailHeader'
 import Icon from '../../components/Icon'
 import { Block, blockHeader, blockContent } from '../../components/Block'
@@ -27,26 +27,31 @@ class Detail extends Component {
       swipeToClose: true
     }
   }
+
+  onFullScreen() {
+    // StatusBar.setHidden(true, 'slide')
+  }
+
   render() {
     return (
       <View style={commonStyles.root}>
         <StatusBar
+          ref={(ref) => { this.statusbar = ref }}
           backgroundColor="rgba(0, 0, 0, 0)"
           barStyle="light-content"
           translucent />
-        <View style={styles.player}>
-          {/* <Video
-            title="阿里云视频服务"
-            placeholder="http://img.zhiding.cn/4/977/lic1FRZrMJn56.png"
-            url="https://tbm.alicdn.com/jAIYIHW4PF2qFdskNZi/SFuuVjoHwfjBueuM089%40%40sd.mp4"
-            rotateToFullScreen={true}
-            fullScreenOnly={true} /> */}
-        </View>
+        <Player
+          autoPlay={true}
+          thumbnail="http://puui.qpic.cn/tv/0/15788156_453254/0"
+          source={{ uri: "http://pc.xw-scm.com/asset/video/tv.mp4" }}
+          repeat={false}
+          onFullScreen={this.onFullScreen.bind(this)}
+        />
         <ScrollView showsVerticalScrollIndicator={false}>
           <Brief />
           <Series />
           <Actores />
-          {/* <View style={[blockStyle.block]}>
+          <View style={[blockStyle.block]}>
             <View style={blockStyle.blockHeader}>
               <View style={blockStyle.headerMain}>
                 <View style={blockStyle.titleMain}>
@@ -97,7 +102,7 @@ class Detail extends Component {
                 </View>
               </View>
             </View>
-          </View> */}
+          </View>
           <VideoBlock type={3} blockInfo={mockVideoBlocks[3]} />
           <VideoBlock type={1} blockInfo={mockVideoBlocks[1]} />
 
@@ -117,7 +122,7 @@ const styles = StyleSheet.create({
   },
 
   player: {
-    height: 260,
+    // height: 260,
     backgroundColor: '#000',
   },
   backgroundVideo: {
@@ -154,7 +159,7 @@ const styles = StyleSheet.create({
     color: textColor.secondary,
     textAlign: 'center',
   },
-  
+
   scenes: {
     marginTop: -16,
   },
