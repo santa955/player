@@ -16,7 +16,7 @@ export class Category extends React.Component {
         <ScrollView showsVerticalScrollIndicator={false} >
           <Swiper swipers={mockSwipers}></Swiper>
           {/* <HomeMenu menus={mockMenus} navigate={navigate} /> */}
-          <VideoBlock type="3" navigate={navigate} blockInfo={mockVideos}></VideoBlock>
+          <VideoBlock type={3} navigate={navigate} blockInfo={mockVideos}></VideoBlock>
         </ScrollView>
       </View >
     )

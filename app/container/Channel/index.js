@@ -17,15 +17,15 @@ export class Channel extends Component {
   render() {
     let { navigate } = this.props.navigation
     return (
-      <View style={{ position: 'relative' }}>
+      <View style={{ flex: 1, position: 'relative' }}>
         <ScrollView showsVerticalScrollIndicator={false} >
           <Swiper swipers={mockSwipers}></Swiper>
           <HomeMenu menus={channels} navigate={navigate} />
-          <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
-          <VideoBlock type="2" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
-          <VideoBlock type="3" navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
-          <VideoBlock type="2" navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
-          <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
+          <VideoBlock type={1} navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+          <VideoBlock type={2} navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
+          <VideoBlock type={3} navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
+          <VideoBlock type={2} navigate={navigate} blockInfo={mockVideoBlocks[2]}></VideoBlock>
+          <VideoBlock type={1} navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
         </ScrollView>
       </View >
     )

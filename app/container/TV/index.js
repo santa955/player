@@ -20,9 +20,9 @@ export class TV extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <Swiper swipers={mockSwipers}></Swiper>
           <VideoLocationFilter filters={mockMenus} />
-          <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
-          <VideoBlock type="3" navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
-          <VideoBlock type="1" navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
+          <VideoBlock type={1} navigate={navigate} blockInfo={mockVideoBlocks[0]}></VideoBlock>
+          <VideoBlock type={3} navigate={navigate} blockInfo={mockVideoBlocks[3]}></VideoBlock>
+          <VideoBlock type={1} navigate={navigate} blockInfo={mockVideoBlocks[1]}></VideoBlock>
         </ScrollView>
       </View>
     )

@@ -30,25 +30,36 @@ export class Home extends Component {
     return <HomeMenu menus={data[0]} navigate={navigate} />
   }
 
+  renderSection() {
+    let sections = [
+      { type: -1, data: [mockSwipers], renderItem: this.renderSwiper.bind(this) },
+      { type: -1, data: [mockMenus], renderItem: this.renderMenu.bind(this) },
+    ]
+
+    for (let i = 1; i <= 3000; i++) {
+      let o = {}
+      if (i % 2 === 0) { o.type = 2, o.data = [mockVideoBlocks[2]] }
+      else if (i % 3 === 0) { o.type = 3, o.data = [mockVideoBlocks[3]] }
+      else { o.type = 1, o.data = [mockVideoBlocks[1]] }
+      sections.push(o)
+    }
+
+    return sections
+  }
+
   render() {
-    let blockInfo = mockVideoBlocks[0]
     return (
       <View style={{ flex: 1 }}>
         <SectionList
+          initialNumToRender={5}
           showsVerticalScrollIndicator={false}
           renderItem={this.renderBlock.bind(this)}
           keyExtractor={(item, index) => item + index}
           ListFooterComponent={Footer}
           removeClippedSubviews={true}
-          sections={[
-            { type: -1, data: [mockSwipers], renderItem: this.renderSwiper.bind(this) },
-            { type: -1, data: [mockMenus], renderItem: this.renderMenu.bind(this) },
-            { type: 1, data: [mockVideoBlocks[0]] },
-            { type: 2, data: [mockVideoBlocks[2]] },
-            { type: 3, data: [mockVideoBlocks[3]] },
-            { type: 2, data: [mockVideoBlocks[2]] },
-            { type: 1, data: [mockVideoBlocks[1]] },
-          ]}
+          sections={this.renderSection()}
+          onEndReachedThreshold={2}
+          refreshing={true}
         />
       </View >
     )

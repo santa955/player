@@ -132,6 +132,15 @@ export default class Player extends Component {
     alert(JSON.stringify(err))
   }
 
+  onEnd() {
+    let { repeat } = this.props
+    if (!repeat) {
+      this.setState({ paused: true }, () => {
+        this.player.seek(0)
+      })
+    }
+  }
+
   getCurrentTimePercentage(currentTime, duration) {
     if (currentTime > 0) {
       return parseFloat(currentTime) / parseFloat(duration)
@@ -191,7 +200,7 @@ export default class Player extends Component {
           onLoadStart={this.loadStart}            // Callback when video starts to load
           onLoad={this.onLoad.bind(this)}         // Callback when video loads
           onProgress={this.onProgress.bind(this)}               // Callback every ~250ms with currentTime
-          onEnd={this.onEnd}                      // Callback when playback finishes
+          onEnd={this.onEnd.bind(this)}                      // Callback when playback finishes
           onError={this.onError.bind(this)}               // Callback when video cannot be loaded
           onBuffer={this.onBuffer.bind(this)}                // Callback when remote video is buffering
           onTouch={this.onTouch.bind(this)}

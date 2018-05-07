@@ -31,8 +31,8 @@ export default class VideoItem extends React.PureComponent {
         onPress={() => navigate('Detail')}>
         <View style={[videoStyle]}>
           <View style={styles.videoImage}>
-            {/* <UImage uri={video.cover} style={coverStyle} /> */}
-            <FitImage source={{ uri: video.cover }} style={coverStyle} />
+            <UImage uri={video.cover} style={coverStyle} />
+            {/* <FitImage source={{ uri: video.cover }} style={coverStyle} /> */}
             {!!video.duration && <VideoDuration duration={video.duration} />}
           </View>
           <Text style={styles.videoName} numberOfLines={1}>{video.name}</Text>
@@ -54,7 +54,7 @@ export default class VideoItem extends React.PureComponent {
   getHeight() {
     let { type } = this.props
     let width = this.getWidth()
-    let ratio = type === 1 ? RatioVertical : RatioVertical
+    let ratio = type === 3 ? RatioVertical : RationHorizontal
     return width / ratio
   }
 }
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
   coverWrapper: {
     borderRadius: 1,
-    width: '100%',
+    width: layoutWidth,
     height: layoutWidth / RationHorizontal
   },
 

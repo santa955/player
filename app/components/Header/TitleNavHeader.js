@@ -19,7 +19,7 @@ export default class TitleNavHeader extends React.PureComponent {
     let { uid = 1000, title = '' } = params
 
     return (
-      <View style={styles.navHeader}>
+      <View style={[styles.navHeader, style]}>
         <View style={styles.nav}>
           <View style={styles.main}>
             <TouchableOpacity

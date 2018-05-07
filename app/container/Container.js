@@ -11,13 +11,14 @@ export default (props) =>
         Orientation.lockToPortrait()
       }
       render() {
+        let { header } = props
         return (
           <View style={{ flex: 1 }}>
             <StatusBar
               backgroundColor="rgba(0, 0, 0, 0)"
               barStyle={props.barStyle}
               translucent={true} />
-            {this.renderHeader()}
+            {!!header && this.renderHeader()}
             <WrappedComponent {...this.props} />
           </View>
         )
