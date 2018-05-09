@@ -99,15 +99,12 @@ export default class Form extends Component {
 
 const styles = StyleSheet.create({
   form: {
-    // flex: 1,
-    paddingTop: 128,
-    paddingHorizontal: 36,
-    backgroundColor: '#4c69a5'
-    // justifyContent: 'center'
+    paddingTop: 32,
+    paddingHorizontal: 22,
   },
 
   introText: {
-    color: '#e9edf0',
+    color: color.blackPrimary,
   },
 
   introMain: {
@@ -116,13 +113,13 @@ const styles = StyleSheet.create({
   },
 
   introTip: {
-    marginTop: 12,
+    marginTop: 8,
     fontSize: font.sm,
-    color: '#d3e0d7'
+    color: color.blackSecondary
   },
 
   formItems: {
-    marginTop: 86
+    marginTop: 48
   },
 
   submit: {

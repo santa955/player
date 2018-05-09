@@ -13,6 +13,7 @@ export default class BlockHeader extends React.PureComponent {
       style,
       title,
       subTitle,
+      titleStyle,
       headerIcon,
       headerIconStyle,
       moreLink,
@@ -30,8 +31,8 @@ export default class BlockHeader extends React.PureComponent {
               name={headerIcon}
               iconStyle={[styles.headerIcon, headerIconStyle]} />
           }
-          <View style={styles.headerTitle}>
-            <Text style={styles.titleMain}>{title}</Text>
+          <View style={[styles.headerTitle]}>
+            <Text style={[styles.titleMain, titleStyle]}>{title}</Text>
             <Text style={styles.titleSub}>{subTitle}</Text>
           </View>
         </View>

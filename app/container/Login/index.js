@@ -9,12 +9,10 @@ import Form from './Form'
 import { color, font } from '../../styles'
 
 export class Login extends Component {
-  static navigationOptions = {
-  }
   constructor(props) {
     super(props)
     this.state = {
-      showForm: false,
+      showForm: true,
       signup: false
     }
   }
@@ -54,8 +52,7 @@ export class Login extends Component {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#fff'
+    backgroundColor: color.colorBgWeight
   },
 
   overLay: {

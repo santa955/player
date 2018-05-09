@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   itemInput: {
     paddingVertical: 4,
     marginBottom: 8,
-    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomWidth: 1,
     borderColor: '#9c9d9e',
   },
 
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderWidth: 0,
     fontSize: font.nr,
-    color: '#9c9d9e',
+    color: color.blackPrimary,
     // fontWeight: '600'
   },
 

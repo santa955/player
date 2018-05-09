@@ -18,7 +18,7 @@ export default class Block extends React.PureComponent {
 
 const styles = StyleSheet.create({
   block: {
-    flex: 1,
+    // flex: 1,
     paddingHorizontal: layout.paddingHorizontal,
     paddingVertical: layout.paddingVertical,
     backgroundColor: color.white,
