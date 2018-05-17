@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "install": "react-native run-android",
-    "RNStart": "react-native start",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android",
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
   },
@@ -35,6 +34,7 @@
   "devDependencies": {
     "babel-jest": "21.0.2",
     "babel-preset-react-native": "4.0.0",
+    "cross-env": "^5.1.5",
     "jest": "21.1.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },

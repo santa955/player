@@ -10,9 +10,18 @@ import Footer from '../../components/Footer'
 import HomeMenu from './Menu'
 import { mockSwipers, mockVideoBlocks, mockMenus } from '../../mock/home'
 
+import { getVideo } from '../../service/common'
+
 export class Home extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    getVideo()
+      .then(r => {
+        console.log(r)
+      })
   }
 
   renderBlock({ section: { type, data = [] } }) {

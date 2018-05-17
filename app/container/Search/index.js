@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, StatusBar } from 'react-native'
 import Container from '../Container'
 import { HEADERTYPE, STATUSBAR } from '../../consts'
 import Hot from './Hot'
+import ResultList from './Result'
 import { font, color, layout } from '../../styles'
 
 import { hots } from '../../mock/search'
@@ -16,6 +17,7 @@ export class Search extends React.Component {
     return (
       <View style={styles.root}>
         <Hot items={hots} />
+        <ResultList items={hots}></ResultList>
       </View>
     )
   }
