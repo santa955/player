@@ -45,7 +45,7 @@ export default class Swiper extends React.Component {
           onPress={() => { }}>
           <Image
             style={styles.swiper}
-            source={{ uri: swiper.bannerImage }}
+            source={{ uri: swiper.smallBannerImage }}
           />
         </TouchableOpacity>
       )

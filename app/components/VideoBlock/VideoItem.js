@@ -12,7 +12,7 @@ const RatioVertical = 2 / 3
 const RationHorizontal = 1.78
 
 let getDuration = (video) => {
-  let { videoType = 1, updateStatus = 0, episode, episodeCurr, duration } = video
+  let { videoType = 1, updateStatus = 0, episode = 0, episodeCurr = 0, duration = '00:00' } = video
   let durationText = ''
   videoType = parseInt(videoType, 10)
   if (videoType === 1) {

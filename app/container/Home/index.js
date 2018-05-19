@@ -10,7 +10,7 @@ import Footer from '../../components/Footer'
 import HomeMenu from './Menu'
 import { mockSwipers, mockMenus } from '../../mock/home'
 
-import homeService from '../../service/home'
+import HomeService from '../../service/home'
 
 export class Home extends Component {
   constructor(props) {
@@ -18,8 +18,8 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 20 })
     this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
+    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 20 })
   }
 
   renderBlock({ section: { type, data = [] } }) {
@@ -83,4 +83,4 @@ export class Home extends Component {
 export default Container({
   barStyle: STATUSBAR.LIGHT,
   header: { type: HEADERTYPE.SEARCHENTRY }
-})(homeService(Home))
+})(HomeService(Home))
