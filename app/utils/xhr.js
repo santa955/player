@@ -21,14 +21,21 @@ export default xhr = ({ url, method = 'get', header = {}, data = {}, success, er
         'Content-Type': 'application/json; charset=utf-8',
         ...header
       }
-    }).then(response => {
-      let deltatime = Date.now() - start
-      response.deltatime = deltatime
-      success && success(response)
-      resolve(response)
-    }, err => {
-      error && error(err)
-      resolve({})
     })
+      .then(response => {
+        let deltatime = Date.now() - start
+        response.deltatime = deltatime
+        success && success(response)
+        resolve({ ...response.data })
+      }, err => {
+        if (isDev) { console.log('API request error', err) }
+        error && error(err)
+        reject({ status: 500, message: err, data: null })
+      })
+      .catch(err => {
+        error && error(err)
+        if (isDev) { console.log('API request error', err) }
+        reject({ status: 500, message: err, data: null })
+      })
   })
 }
