@@ -11,6 +11,19 @@ let videoItemGap = 6
 const RatioVertical = 2 / 3
 const RationHorizontal = 1.78
 
+let getDuration = (video) => {
+  let { videoType = 1, updateStatus = 0, episode, episodeCurr, duration } = video
+  let durationText = ''
+  videoType = parseInt(videoType, 10)
+  if (videoType === 1) {
+    durationText = updateStatus ? `全${episode}集` : `更新至${episodeCurr}集`
+  } else if (videoType === 2) {
+    durationText = duration
+  }
+
+  return durationText
+}
+
 export default class VideoItem extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -31,12 +44,12 @@ export default class VideoItem extends React.PureComponent {
         onPress={() => navigate('Detail')}>
         <View style={[videoStyle]}>
           <View style={styles.videoImage}>
-            <UImage uri={video.cover} style={coverStyle} />
+            <UImage uri={type === 3 ? video.iconVertical : video.iconHorizontal} style={coverStyle} />
             {/* <FitImage source={{ uri: video.cover }} style={coverStyle} /> */}
-            {!!video.duration && <VideoDuration duration={video.duration} />}
+            <VideoDuration duration={getDuration(video)} />
           </View>
-          <Text style={styles.videoName} numberOfLines={1}>{video.name}</Text>
-          <Text style={styles.videoDesc} numberOfLines={1}>{video.desc}</Text>
+          <Text style={styles.videoName} numberOfLines={1}>{video.videoName}</Text>
+          <Text style={styles.videoDesc} numberOfLines={1}>{video.videoDesc}</Text>
         </View>
       </TouchableOpacity>
     )
@@ -71,11 +84,11 @@ export class FullVideoItem extends React.PureComponent {
       onPress={() => navigate('Detail')}>
       <View style={styles.videoFull}>
         <View style={styles.coverWrapper}>
-          <UImage uri={video.cover} style={styles.videoCover} />
-          {!!video.duration && <VideoDuration duration={video.duration} />}
+          <UImage uri={video.iconHorizontal} style={styles.videoCover} />
+          <VideoDuration duration={getDuration(video)} />
         </View>
-        <Text style={styles.videoName} numberOfLines={1}>{video.name}</Text>
-        <Text style={styles.videoDesc} numberOfLines={1}>{video.desc}</Text>
+        <Text style={styles.videoName} numberOfLines={1}>{video.videoName}</Text>
+        <Text style={styles.videoDesc} numberOfLines={1}>{video.videoDesc}</Text>
       </View>
     </TouchableOpacity>
   }

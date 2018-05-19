@@ -8,9 +8,9 @@ import Swiper from '../../components/Swiper'
 import { VideoBlock } from '../../components/VideoBlock'
 import Footer from '../../components/Footer'
 import HomeMenu from './Menu'
-import { mockSwipers, mockVideoBlocks, mockMenus } from '../../mock/home'
+import { mockSwipers, mockMenus } from '../../mock/home'
 
-import { getVideo } from '../../service/common'
+import homeService from '../../service/home'
 
 export class Home extends Component {
   constructor(props) {
@@ -18,10 +18,8 @@ export class Home extends Component {
   }
 
   componentDidMount() {
-    getVideo()
-      .then(r => {
-        console.log(r)
-      })
+    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 20 })
+    this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
   }
 
   renderBlock({ section: { type, data = [] } }) {
@@ -40,16 +38,21 @@ export class Home extends Component {
   }
 
   renderSection() {
+    let {
+      homeRecommends: { data: videoBlocks = [] } = {},
+      homeBanner: { data: swipers = [] } = {},
+    } = this.props
     let sections = [
-      { type: -1, data: [mockSwipers], renderItem: this.renderSwiper.bind(this) },
+      { type: -1, data: [swipers], renderItem: this.renderSwiper.bind(this) },
       { type: -1, data: [mockMenus], renderItem: this.renderMenu.bind(this) },
     ]
 
-    for (let i = 1; i <= 3000; i++) {
+    for (let i = 0, len = videoBlocks.length; i < len; i++) {
       let o = {}
-      if (i % 2 === 0) { o.type = 2, o.data = [mockVideoBlocks[2]] }
-      else if (i % 3 === 0) { o.type = 3, o.data = [mockVideoBlocks[3]] }
-      else { o.type = 1, o.data = [mockVideoBlocks[1]] }
+      let index = i + 1
+      if (index % 2 === 0) { o.type = 2, o.data = [videoBlocks[i]] }
+      else if (index % 3 === 0) { o.type = 3, o.data = [videoBlocks[i]] }
+      else { o.type = 1, o.data = [videoBlocks[i]] }
       sections.push(o)
     }
 
@@ -57,6 +60,8 @@ export class Home extends Component {
   }
 
   render() {
+    let { homeRecommends: { isRequesting } = {} } = this.props
+    if (isRequesting) return <Text>加载中。。。</Text>
     return (
       <View style={{ flex: 1 }}>
         <SectionList
@@ -78,4 +83,4 @@ export class Home extends Component {
 export default Container({
   barStyle: STATUSBAR.LIGHT,
   header: { type: HEADERTYPE.SEARCHENTRY }
-})(Home)
+})(homeService(Home))

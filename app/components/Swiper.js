@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
-import Carousel from 'react-native-looped-carousel';
+import React from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions } from 'react-native'
+import Carousel from 'react-native-looped-carousel'
 
-let screenWidth = Dimensions.get('window').width;
+let screenWidth = Dimensions.get('window').width
 
 export default class Swiper extends React.Component {
   render() {
@@ -35,17 +35,17 @@ export default class Swiper extends React.Component {
   }
 
   renderSwipers() {
-    let swiperData = this.props.swipers;
+    let swiperData = this.props.swipers
     return swiperData.map((swiper, index) => {
       return (
         <TouchableOpacity
-          key={index}
+          key={swiper.videoId}
           activeOpacity={1}
           focusedOpacity={1}
           onPress={() => { }}>
           <Image
             style={styles.swiper}
-            source={{ uri: swiper.imgUrl }}
+            source={{ uri: swiper.bannerImage }}
           />
         </TouchableOpacity>
       )

@@ -55,7 +55,7 @@ export default class VideoList extends React.Component {
     let { videoes = [], navigate, type } = this.props
     return (
       <FlatList
-        keyExtractor={(item, index) => item.name}
+        keyExtractor={(item, index) => item.videoId}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         data={videoes}
@@ -75,7 +75,7 @@ export default class VideoList extends React.Component {
 
   renderItem(videoes, type, navigate) {
     return videoes.map((video, index) => {
-      return <VideoItem key={index} type={type} video={video} navigate={navigate} />
+      return <VideoItem key={video.videoId} type={type} video={video} navigate={navigate} />
     })
   }
 }
