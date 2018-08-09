@@ -16,7 +16,7 @@ export class Film extends Component {
 
   componentDidMount() {
     this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
-    this.props.requestRecommends({ type: 1, pageIndex: 1, pageSize: 20 })
+    this.props.requestRecommends({ type: 2, pageIndex: 1, pageSize: 5 })
   }
 
   renderBlock({ section: { type, data = [] } }) {

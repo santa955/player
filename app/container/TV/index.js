@@ -5,6 +5,7 @@ import { View, SectionList, Text } from 'react-native'
 import Container from '../Container'
 import { HEADERTYPE, STATUSBAR } from '../../consts'
 import Swiper from '../../components/Swiper'
+import Footer, { FooterIndicator } from '../../components/Footer'
 import { VideoBlock, VideoLocationFilter } from '../../components/VideoBlock'
 
 import TVService from '../../service/tv'
@@ -14,16 +15,23 @@ import { mockSwipers, mockVideoBlocks, mockMenus } from '../../mock/tv'
 export class TV extends Component {
   constructor() {
     super()
+    this.state = {
+      refreshing: false
+    }
+  }
+
+  componentWillMount() {
+    this.props.requestLocalData()
   }
 
   componentDidMount() {
     this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
-    this.props.requestRecommends({ type: 1, pageIndex: 1, pageSize: 20 })
+    this.props.requestVideos({ type: 1, pageIndex: 1, pageSize: 21 })
   }
 
   renderBlock({ section: { type, data = [] } }) {
     let { navigate } = this.props.navigation
-    return <VideoBlock type={type} navigate={navigate} blockInfo={data[0]} />
+    return <VideoBlock type={type} navigate={navigate} blockInfo={{ videoes: data[0] }} />
   }
 
   renderSwiper({ section: { type, data = [] } }) {
@@ -38,41 +46,55 @@ export class TV extends Component {
 
   renderSection() {
     let {
-      tvRecommends: { data: videoBlocks = [] } = {},
+      tvVideos: { data: videoBlocks = [] } = {},
       tvBanner: { data: swipers = [] } = {},
     } = this.props
+
     let sections = [
       { type: -1, data: [swipers], renderItem: this.renderSwiper.bind(this) },
       { type: -1, data: [mockMenus], renderItem: this.renderMenu.bind(this) },
     ]
 
-    for (let i = 0, len = videoBlocks.length; i < len; i++) {
-      let o = {}
-      let index = i + 1
-      if (index % 2 === 0) { o.type = 2, o.data = [videoBlocks[i]] }
-      else if (index % 3 === 0) { o.type = 3, o.data = [videoBlocks[i]] }
-      else { o.type = 1, o.data = [videoBlocks[i]] }
-      sections.push(o)
+    let videos = {
+      type: 3,
+      data: [videoBlocks]
     }
+
+    sections.push(videos)
 
     return sections
   }
 
+  handleRefresh() {
+    let { requestVideos } = this.props
+    // requestVideos({ type: 1, pageIndex: 1, pageSize: 21 })
+  }
+
+  handleLoadMore(o) {
+    let { tvVideos = {}, requestVideos } = this.props
+    let { pageIndex = 1, isEnd = false } = tvVideos
+    !isEnd && requestVideos({ type: 1, pageIndex: pageIndex + 1, pageSize: 21 })
+  }
+
   render() {
-    let { tvRecommends: { isRequesting } = {} } = this.props
-    if (isRequesting) return <Text>加载中。。。</Text>
+    let { tvVideos: { isRequesting = true, isEnd = false } = {} } = this.props
     return (
       <View style={{ flex: 1 }}>
         <SectionList
-          initialNumToRender={5}
+          initialNumToRender={9}
           showsVerticalScrollIndicator={false}
           renderItem={this.renderBlock.bind(this)}
-          keyExtractor={(item, index) => item + index}
-          ListFooterComponent={Footer}
+          keyExtractor={(item, index) => { return item.length + index }}
+          ListFooterComponent={isEnd ? Footer : FooterIndicator}
           removeClippedSubviews={true}
           sections={this.renderSection()}
-          onEndReachedThreshold={2}
-          refreshing={true}
+          refreshing={isRequesting}
+          alwaysBounceVertical={false}
+          bounce={false}
+          overScrollMode='never'
+          onEndReachedThreshold={0.1}
+          onRefresh={this.handleRefresh.bind(this)}
+          onEndReached={this.handleLoadMore.bind(this)}
         />
       </View >
     )

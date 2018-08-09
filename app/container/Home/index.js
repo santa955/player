@@ -72,8 +72,7 @@ export class Home extends Component {
           ListFooterComponent={Footer}
           removeClippedSubviews={true}
           sections={this.renderSection()}
-          onEndReachedThreshold={2}
-          refreshing={true}
+          onEndReachedThreshold={0.8}
         />
       </View >
     )

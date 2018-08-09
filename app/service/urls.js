@@ -1,6 +1,7 @@
 export default urls = {
-  'GetBanner': '/home/banner/{type}?pageSize={pageSize}&pageIndex={pageIndex}',
-  'GetRecommends': '/home/mirror?type={type}&pageSize={pageSize}&pageIndex={pageIndex}',
+  'GetBanner': '/recommend/banner/{type}?pageSize={pageSize}&pageIndex={pageIndex}',
+  'GetRecommends': '/recommend/mirror?type={type}&pageSize={pageSize}&pageIndex={pageIndex}&limit={limit}',
+  'GetVideos': '/video/{type}?pageSize={pageSize}&pageIndex={pageIndex}',
   'GetVideoDetail': '/video/detail/{videoId}',
   'GetVideoEpisode': '/video/episode/{videoId}',
 }

@@ -72,20 +72,6 @@ export class AsyncService extends React.Component {
     }
 }
 
-export const enhanceAsyncService = (config) => class extends AsyncService {
-  constructor(props) {
-    super(props)
-    this.asyncFuncs = this.genAsyncFunctions()
-  }
-
-  genAsyncFunctions() {
-    let aysncFuncs = {}
-    config.forEach(({ name, key, asyncFunc, transformer }) => {
-      aysncFuncs[name] = (...args) => this.getAsyncData(key, () => asyncFunc(...args), transformer)
-    })
-  }
-}
-
 export let getUri = (apiName, params) => {
   let queryParams = Object.assign({}, { pageIndex: 1, pageSize: 20 }, params)
   let url = urls[apiName]

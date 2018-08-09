@@ -15,6 +15,7 @@
     "react-native": "0.48.3",
     "react-native-android-statusbar": "^0.1.3",
     "react-native-fast-image": "^4.0.8",
+    "react-native-indicators": "^0.13.0",
     "react-native-keep-awake": "^3.0.1",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-looped-carousel": "^0.1.7",

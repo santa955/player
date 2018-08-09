@@ -41,7 +41,7 @@ export default class VideoItem extends React.PureComponent {
       <TouchableOpacity
         activeOpacity={1}
         focusedOpacity={1}
-        onPress={() => navigate('Detail')}>
+        onPress={() => navigate('Detail', { videoId: video.videoId })}>
         <View style={[videoStyle]}>
           <View style={styles.videoImage}>
             <UImage uri={type === 3 ? video.iconVertical : video.iconHorizontal} style={coverStyle} />
@@ -81,7 +81,7 @@ export class FullVideoItem extends React.PureComponent {
     return <TouchableOpacity
       activeOpacity={1}
       focusedOpacity={1}
-      onPress={() => navigate('Detail')}>
+      onPress={() => navigate('Detail', { videoId: video.videoId })}>
       <View style={styles.videoFull}>
         <View style={styles.coverWrapper}>
           <UImage uri={video.iconHorizontal} style={styles.videoCover} />

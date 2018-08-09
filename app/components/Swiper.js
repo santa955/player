@@ -31,11 +31,12 @@ export default class Swiper extends React.Component {
         }}>
         {this.renderSwipers()}
       </Carousel>
-    </View>);
+    </View>)
   }
 
   renderSwipers() {
     let swiperData = this.props.swipers
+    if (!swiperData.length) swiperData = [{ videoId: '', smallBannerImage: 'http://puui.qpic.cn/tv/0/23828745_453254/0' }]
     return swiperData.map((swiper, index) => {
       return (
         <TouchableOpacity

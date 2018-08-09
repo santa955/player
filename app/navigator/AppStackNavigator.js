@@ -17,20 +17,7 @@ const AppStackNavigator = StackNavigator({
   Detail: {
     screen: Detail,
     navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#2eb257',
-        height: 48
-      },
-      headerTitleStyle: {
-        color: 'white',
-        fontSize: 14,
-        textAlign: 'center'
-      },
-      headerBackTitleStyle: {
-        color: 'white',
-        fontSize: 14
-      },
-      headerTintColor: 'white'
+      header: null
     }
   },
   Category: {

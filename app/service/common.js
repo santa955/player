@@ -17,16 +17,26 @@ export default commonService = {
    * @param {*} pageIndex 
    * @param {*} pageSize 
    */
-  getRecommends({ type = 0, pageIndex = 1, pageSize = 20 }) {
-    return getData('GetRecommends', { type, pageIndex, pageSize })
+  getRecommends({ type = 0, pageIndex = 1, pageSize = 20, limit = 9 }) {
+    return getData('GetRecommends', { type, pageIndex, pageSize, limit })
   },
 
   /**
    * 获取视频详情数据
    * @param {*} videoId 
    */
-  GetVideoDetail({ videoId }) {
+  getVideoDetail({ videoId }) {
     return getData('GetVideoDetail', { videoId })
+  },
+
+  /**
+    * 获取各个频道所有视频
+    * @param {*} type 
+    * @param {*} pageIndex 
+    * @param {*} pageSize 
+    */
+  getVideos({ type, pageIndex = 1, pageSize = 20 }) {
+    return getData('GetVideos', { type, pageIndex, pageSize })
   },
 
   /**

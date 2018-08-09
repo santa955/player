@@ -6,12 +6,24 @@ import { font, color } from '../../styles'
 
 export default class Brief extends React.PureComponent {
   render() {
+    let {
+      videoName,
+      episode = 0,
+      updateStatus = 1,
+      episodeCurr = 0,
+      views = 120,
+      score = 0,
+      like = 120,
+      collect = 12949,
+      download = 2323
+    } = this.props
+
     return (
       <Block verticalGap={false}>
         <View style={styles.brief}>
           <View style={styles.briefHeader}>
             <View style={styles.title}>
-              <Text style={styles.titleText} numberOfLines={1}>神探夏洛克神探夏洛克神探夏洛克 第四季</Text>
+              <Text style={styles.titleText} numberOfLines={1}>{videoName}</Text>
             </View>
             <View style={styles.link}>
               <Text style={styles.linkText}>简介</Text>
@@ -19,34 +31,31 @@ export default class Brief extends React.PureComponent {
             </View>
           </View>
           <View style={styles.briefInfo}>
-            <Text style={styles.infoText}>全42集</Text>
-            <Text style={styles.infoText}>3397.6万次播放</Text>
-            <Text style={styles.infoText}>7.5分</Text>
+            <Text style={styles.infoText}>{!!updateStatus ? `全${episode}集` : `更新至${episodeCurr}集`}</Text>
+            {!!views && <Text style={styles.infoText}>{views}次播放</Text>}
+            {!!score && <Text style={styles.infoText}>{score}分</Text>}
             <Text style={styles.infoText}>传奇</Text>
           </View>
           <View style={styles.briefMetas}>
             <View style={styles.metas}>
-              <Text style={styles.meta}>3.5万赞</Text>
-              <Text style={styles.meta}>2,394收藏</Text>
-              <Text style={styles.meta}>3,645下载</Text>
+              <Text style={styles.meta}>{like}赞</Text>
+              <Text style={styles.meta}>{collect}收藏</Text>
+              <Text style={styles.meta}>{download}下载</Text>
             </View>
             <View style={styles.actions}>
               <TouchableOpacity>
                 <View style={styles.action}>
                   <Icon type="Feather" name="heart" iconStyle={styles.actionIcon} />
-                  {/* <Text style={styles.actionText}>收藏</Text> */}
                 </View>
               </TouchableOpacity>
               <TouchableOpacity>
                 <View style={styles.action}>
                   <Icon type="FontAwesome" name="thumbs-o-up" iconStyle={styles.actionIcon} />
-                  {/* <Text style={styles.actionText}>点赞</Text> */}
                 </View>
               </TouchableOpacity>
               <TouchableOpacity>
                 <View style={styles.action}>
                   <Icon type="Feather" name="download-cloud" iconStyle={styles.actionIcon} />
-                  {/* <Text style={styles.actionText}>下载</Text> */}
                 </View>
               </TouchableOpacity>
             </View>
@@ -58,12 +67,15 @@ export default class Brief extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-  brief: {},
-
   briefHeader: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
+  },
+
+  title:{
+    flex: 1
   },
 
   titleText: {

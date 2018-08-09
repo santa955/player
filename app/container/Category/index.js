@@ -9,7 +9,7 @@ import CategoryService from '../../service/category'
 export class Category extends React.Component {
   componentDidMount() {
     this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
-    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 20 })
+    this.props.requestRecommends({ type: 1, pageIndex: 1, pageSize: 10 })
   }
 
   renderBlock({ section: { type, data = [] } }) {

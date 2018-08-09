@@ -4,6 +4,7 @@ import Player from '../../components/KPlayer'
 import Header from '../../components/Header/DetailHeader'
 import Icon from '../../components/Icon'
 import { Block, blockHeader, blockContent } from '../../components/Block'
+import DetailService from '../../service/detail'
 import Brief from './Brief'
 import Series from './Series'
 import Actores from './Actores'
@@ -28,11 +29,21 @@ class Detail extends Component {
     }
   }
 
-  onFullScreen() {
-    // StatusBar.setHidden(true, 'slide')
+  componentDidMount() {
+    let { state: { params = {} } = {} } = this.props.navigation
+    let { videoId } = params
+    if (videoId) {
+      this.props.requestVideoDetail({ videoId })
+      this.props.requestRecommends({ type: 0 })
+    }
   }
 
   render() {
+    let {
+      videoDetail: { data = {} } = {},
+      videoRecommends = {}
+    } = this.props
+    let { data: videos = [] } = videoRecommends
     return (
       <View style={commonStyles.root}>
         <StatusBar
@@ -48,71 +59,25 @@ class Detail extends Component {
           onFullScreen={this.onFullScreen.bind(this)}
         />
         <ScrollView showsVerticalScrollIndicator={false}>
-          <Brief />
+          <Brief {...data} />
           <Series />
           <Actores />
-          <View style={[blockStyle.block]}>
-            <View style={blockStyle.blockHeader}>
-              <View style={blockStyle.headerMain}>
-                <View style={blockStyle.titleMain}>
-                  <Text style={[blockStyle.mainTitle]}>精彩花絮</Text>
-                </View>
-              </View>
-            </View>
-            <View style={blockStyle.blockContent}>
-              <View style={styles.scenes}>
-                <View style={styles.scene}>
-                  <View style={styles.scenesCovers}>
-                    <Image style={styles.scenesCover} source={{ uri: 'http://puui.qpic.cn/qqvideo_ori/0/k0024yai87w_496_280/0' }} />
-                    <Text style={styles.scenesDuration}>01:34</Text>
-                  </View>
-                  <View style={styles.scenesSummary}>
-                    <Text style={styles.summeryText} numberOfLines={2} >一个媳妇，一个夫人，一个追求者，赵四艳福不浅啊,一个媳妇，一个夫人，一个追求者，赵四艳福不浅啊</Text>
-                    <View style={styles.summeryMeta}>
-                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
-                      <Text style={styles.metaText}>309,098次播放</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={styles.scene}>
-                  <View style={styles.scenesCovers}>
-                    <Image style={styles.scenesCover} source={{ uri: 'http://vthumb.ykimg.com/05420101596ACA59ADC95BA5B1D09329' }} />
-                    <Text style={styles.scenesDuration}>05:30</Text>
-                  </View>
-                  <View style={styles.scenesSummary}>
-                    <Text style={styles.summeryText} numberOfLines={2} >《大军师司马懿之虎啸龙吟》第01集开播花絮</Text>
-                    <View style={styles.summeryMeta}>
-                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
-                      <Text style={styles.metaText}>30.8万次播放</Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={styles.scene}>
-                  <View style={styles.scenesCovers}>
-                    <Image style={styles.scenesCover} source={{ uri: 'http://vthumb.ykimg.com/05420708596206F5000001360807E6C6' }} />
-                    <Text style={styles.scenesDuration}>47:23</Text>
-                  </View>
-                  <View style={styles.scenesSummary}>
-                    <Text style={styles.summeryText} numberOfLines={2} >大军师司马懿之军师联盟 36</Text>
-                    <View style={styles.summeryMeta}>
-                      <Icon type="Feather" name="play-circle" iconStyle={styles.metaIcon} />
-                      <Text style={styles.metaText}>4.3万次播放</Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-          <VideoBlock type={3} blockInfo={mockVideoBlocks[3]} />
-          <VideoBlock type={1} blockInfo={mockVideoBlocks[1]} />
+          {/* <VideoBlock type={3} blockInfo={videos[3]} /> */}
+          {!!videos.length && <VideoBlock type={3} blockInfo={videos[1]} />}
+          {!!videos.length && <VideoBlock type={1} blockInfo={videos[0]} />}
 
         </ScrollView>
       </View >
     )
   }
+
+  onFullScreen() {
+    StatusBar.setHidden(true, 'slide')
+  }
+
 }
 
-export default Detail
+export default DetailService(Detail)
 
 const styles = StyleSheet.create({
   root: {
