@@ -30,9 +30,15 @@ export default Cmp => class HomeService extends AsyncService {
     key: 'homeRecommends',
     asyncFunc: commonService.getRecommends.bind(commonService),
     beforeRequest: (params) => { return params },
-    onSuccess: ({ data = [] }) => {
+    onSuccess: ({ data = [] }, { pageIndex, pageSize, limit }, { data: prevData = [] }) => {
       return {
-        scope: { data }
+        scope: {
+          data: prevData.concat(data),
+          isEnd: data.length < pageSize,
+          pageIndex,
+          pageSize,
+          limit
+        }
       }
     },
     onError: (err, requestParams, prevScope, prevState) => {

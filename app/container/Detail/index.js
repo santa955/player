@@ -34,16 +34,18 @@ class Detail extends Component {
     let { videoId } = params
     if (videoId) {
       this.props.requestVideoDetail({ videoId })
-      this.props.requestRecommends({ type: 0 })
+      this.props.requestRelativeVideo({ videoId })
     }
   }
 
   render() {
-    let {
-      videoDetail: { data = {} } = {},
-      videoRecommends = {}
-    } = this.props
-    let { data: videos = [] } = videoRecommends
+    let { videoDetail: { data = {} } = {}, videoRelativeVideo = {} } = this.props
+    let { data: videos = [] } = videoRelativeVideo
+    let recommendBlockInfo = {
+      cateName: '相关精彩视频',
+      videoes: videos
+    }
+
     return (
       <View style={commonStyles.root}>
         <StatusBar
@@ -62,10 +64,8 @@ class Detail extends Component {
           <Brief {...data} />
           <Series />
           <Actores />
-          {/* <VideoBlock type={3} blockInfo={videos[3]} /> */}
-          {!!videos.length && <VideoBlock type={3} blockInfo={videos[1]} />}
-          {!!videos.length && <VideoBlock type={1} blockInfo={videos[0]} />}
-
+          {!!videos.length && <VideoBlock type={3} blockInfo={recommendBlockInfo} />}
+          {!!videos.length && <VideoBlock type={1} blockInfo={{ videoes: videos }} />}
         </ScrollView>
       </View >
     )

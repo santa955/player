@@ -40,6 +40,7 @@ export default class VideoList extends React.Component {
   renderVerticalList() {
     let { videoes = [], navigate, type } = this.props
     let full = videoes[0]
+    //第一张为全屏
     let vertical = videoes.slice(1)
     return (
       <View style={styles.verticalWrapper}>

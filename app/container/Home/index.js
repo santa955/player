@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { View, SectionList, Text } from 'react-native'
+import { View, SectionList, Text, RefreshControl } from 'react-native'
 import Container from '../Container'
 import { HEADERTYPE, STATUSBAR } from '../../consts'
 import Swiper from '../../components/Swiper'
 import { VideoBlock } from '../../components/VideoBlock'
+import Loading, { PlaceHolder } from '../../components/Loading'
 import Footer from '../../components/Footer'
 import HomeMenu from './Menu'
 import { mockSwipers, mockMenus } from '../../mock/home'
@@ -19,7 +20,14 @@ export class Home extends Component {
 
   componentDidMount() {
     this.props.requestBanner({ type: 0, pageIndex: 1, pageSize: 6 })
-    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 20 })
+    this.props.requestRecommends({ type: 0, pageIndex: 1, pageSize: 5, limit: 9 })
+  }
+
+  handleLoadMore() {
+    console.log(this.props)
+    let { homeRecommends = {}, requestRecommends } = this.props
+    let { pageIndex = 1, pageSize = 5, limit = 9, isEnd = false } = homeRecommends
+    !isEnd && requestRecommends({ type: 0, pageIndex: pageIndex + 1, pageSize, limit })
   }
 
   renderBlock({ section: { type, data = [] } }) {
@@ -60,8 +68,8 @@ export class Home extends Component {
   }
 
   render() {
-    let { homeRecommends: { isRequesting } = {} } = this.props
-    if (isRequesting) return <Text>加载中。。。</Text>
+    let { homeRecommends: { isRequesting, isEnd } = {} } = this.props
+    if (isRequesting) return <Loading />
     return (
       <View style={{ flex: 1 }}>
         <SectionList
@@ -73,7 +81,7 @@ export class Home extends Component {
           removeClippedSubviews={true}
           sections={this.renderSection()}
           onEndReachedThreshold={0.8}
-        />
+          onEndReached={this.handleLoadMore.bind(this)} />
       </View >
     )
   }

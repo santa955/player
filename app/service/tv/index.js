@@ -66,7 +66,6 @@ export default Cmp => class TVService extends AsyncService {
     asyncFunc: commonService.getVideos.bind(commonService),
     beforeRequest: (params) => { return params },
     onSuccess: ({ data = [] }, { pageIndex, pageSize }, { data: prevData = [] }) => {
-      let isEnd
       return {
         scope: {
           data: prevData.concat(data),

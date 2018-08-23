@@ -45,5 +45,13 @@ export default commonService = {
    */
   getVideoEpisode({ videoId }) {
     return getData('GetVideoEpisode', { videoId })
+  },
+
+   /**
+   * 获取视频的所有剧集
+   * @param {String} videoId 
+   */
+  getRelativeVideo({ videoId }) {
+    return getData('GetRelativeVideo', { videoId })
   }
 }

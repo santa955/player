@@ -41,11 +41,11 @@ export default Cmp => class DetailService extends AsyncService {
     }
   })
 
-  requestRecommends = this.genAsyncFunc({
-    key: 'videoRecommends',
-    asyncFunc: commonService.getRecommends.bind(commonService),
+  requestRelativeVideo = this.genAsyncFunc({
+    key: 'videoRelativeVideo',
+    asyncFunc: commonService.getRelativeVideo.bind(commonService),
     beforeRequest: (params) => { return params },
-    onSuccess: ({ data = [] }) => {
+    onSuccess: ({ data }) => {
       return {
         scope: { data }
       }
@@ -62,7 +62,7 @@ export default Cmp => class DetailService extends AsyncService {
         {...this.props}
         requestVideoDetail={this.requestVideoDetail}
         requestVideoEpisode={this.requestVideoEpisode}
-        requestRecommends={this.requestRecommends}
+        requestRelativeVideo={this.requestRelativeVideo}
         ref="cmp"
       />
     )
